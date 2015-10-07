@@ -7,6 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import sg.edu.nus.iss.vmcs.state.FaultState;
 import sg.edu.nus.iss.vmcs.store.CashStoreItem;
 import sg.edu.nus.iss.vmcs.store.Coin;
 import sg.edu.nus.iss.vmcs.store.Store;
@@ -73,6 +74,7 @@ public class ChangeGiver {
 				txCtrl.getCustomerPanel().displayChangeStatus(true);
 		}
 		catch(VMCSException ex){
+                        txCtrl.setState(new FaultState());
 			txCtrl.terminateFault();
 			return false;
 		}

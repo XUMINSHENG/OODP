@@ -10,6 +10,7 @@ package sg.edu.nus.iss.vmcs.customer;
 import java.util.ArrayList;
 
 import sg.edu.nus.iss.vmcs.machinery.MachineryController;
+import sg.edu.nus.iss.vmcs.state.FaultState;
 import sg.edu.nus.iss.vmcs.store.CashStore;
 import sg.edu.nus.iss.vmcs.store.Coin;
 import sg.edu.nus.iss.vmcs.store.Store;
@@ -89,7 +90,8 @@ public class CoinReceiver {
 			//int total=txCtrl.getCustomerPanel().addMoney(value);
 			txCtrl.getCustomerPanel().setTotalMoneyInserted(getTotalInserted());
 			txCtrl.getCustomerPanel().setChange("");
-			txCtrl.processMoneyReceived(getTotalInserted());
+                        txCtrl.setTotal(getTotalInserted());
+			txCtrl.processMoneyReceived();
 		}
 	}
 
@@ -117,6 +119,7 @@ public class CoinReceiver {
 			txCtrl.getCustomerPanel().setTotalMoneyInserted(0);
 		}
 		catch(VMCSException ex){
+                        txCtrl.setState(new FaultState());
 			txCtrl.terminateFault();
 			return false;
 		}

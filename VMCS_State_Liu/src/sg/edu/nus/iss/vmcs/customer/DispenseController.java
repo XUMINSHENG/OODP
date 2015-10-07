@@ -7,6 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import sg.edu.nus.iss.vmcs.state.FaultState;
 import sg.edu.nus.iss.vmcs.store.DrinksBrand;
 import sg.edu.nus.iss.vmcs.store.Store;
 import sg.edu.nus.iss.vmcs.store.StoreController;
@@ -121,6 +122,7 @@ public class DispenseController {
 			txCtrl.getCustomerPanel().getDrinkSelectionBox().update(selectedBrand, quantity, price, drinksName);
 		}
 		catch(VMCSException ex){
+                        txCtrl.setState(new FaultState());
 			txCtrl.terminateFault();
 			return false;
 		}
