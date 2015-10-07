@@ -83,6 +83,7 @@ public class StoreController {
 			    item.setContent(existingBrand);
 			}
 			dStore.addItem(i, item);
+                        
 		}
 	}
 

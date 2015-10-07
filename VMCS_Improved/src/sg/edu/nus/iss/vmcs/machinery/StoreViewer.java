@@ -8,6 +8,8 @@
 package sg.edu.nus.iss.vmcs.machinery;
 
 import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
 
 import sg.edu.nus.iss.vmcs.store.*;
 import sg.edu.nus.iss.vmcs.util.*;
@@ -19,7 +21,7 @@ import sg.edu.nus.iss.vmcs.util.*;
  * @version 3.0 5/07/2003
  * @author Olivo Miotto, Pang Ping Li
  */
-public class StoreViewer extends Panel {
+public class StoreViewer extends Panel implements Observer {
 	private LabelledDisplay viewItems[];
 	private StoreController storeCtrl;
 	
@@ -68,6 +70,8 @@ public class StoreViewer extends Panel {
 			viewItems[i].addListener(
                         new StoreViewerListener(type, i, storeCtrl));
 			this.add(viewItems[i]);
+                        storeItem[i].addObserver(this);
+                        
 		}
 		
 		update();
@@ -79,6 +83,7 @@ public class StoreViewer extends Panel {
 	public void update () {
 		StoreItem[] storeItem = storeCtrl.getStoreItems(type);
 		for (int i = 0; i < storeItem.length; i++) {
+                        
 			int val = storeItem[i].getQuantity();
 			String sval = String.valueOf(val);
 			viewItems[i].setValue(sval);
@@ -102,6 +107,7 @@ public class StoreViewer extends Panel {
 	 * This method close down the store viewer.
 	 */
 	public void closeDown() {
+            System.out.println("asdf");
 	}
 
 	/**
@@ -112,4 +118,10 @@ public class StoreViewer extends Panel {
 	public void setActive(boolean state) {
 		this.setEnabled(state);
 	}
+
+        @Override
+        public void update(Observable o, Object arg) {
+            this.update();
+        }
+        
 }//End of class StoreViewer
