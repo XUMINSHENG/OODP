@@ -155,7 +155,9 @@ public class TransactionController {
 		coinReceiver.storeCash();
 		dispenseCtrl.allowSelection(true);
 		
-		refreshMachineryDisplay();
+// +++ apply observer pattern XuMS 2015/10/09
+//		refreshMachineryDisplay();
+// --- apply observer pattern XuMS 2015/10/09
 		System.out.println("CompleteTransaction: End");
 	}
 	

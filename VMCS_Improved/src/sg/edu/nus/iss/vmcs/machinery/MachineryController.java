@@ -7,6 +7,8 @@
  */
 package sg.edu.nus.iss.vmcs.machinery;
 
+import java.util.Observable;
+import java.util.Observer;
 import sg.edu.nus.iss.vmcs.system.*;
 import sg.edu.nus.iss.vmcs.util.*;
 import sg.edu.nus.iss.vmcs.store.*;
@@ -17,7 +19,7 @@ import sg.edu.nus.iss.vmcs.store.*;
  * @version 3.0 5/07/2003
  * @author Olivo Miotto, Pang Ping Li
  */
-public class MachineryController {
+public class MachineryController implements Observer{
 	/**This attribute reference to the MainController*/
 	public MainController mainCtrl;
 	/**This attribute reference to the StoreController*/
@@ -49,12 +51,15 @@ public class MachineryController {
 	 */
 	public void initialize() throws VMCSException {
 		door = new Door();
+                this.establishObservation();
+                
 	}
 
 	/**
 	 * This method will close down the machinery functions of the vending machine.
 	 */
 	public void closeDown() {
+                this.closeDownObservation();
 		if (ml != null)
 			ml.dispose();
 	}
@@ -164,8 +169,10 @@ public class MachineryController {
 	 */
 	public void storeCoin(Coin c) throws VMCSException {
 		storeCtrl.storeCoin(c);
-		if (ml != null)
-			ml.getCashStoreDisplay().update();
+// +++ apply observer pattern XuMS 2015/10/09
+//		if (ml != null)
+//			ml.getCashStoreDisplay().update();
+// --- apply observer pattern XuMS 2015/10/09
 	}
 
 	/**
@@ -177,8 +184,10 @@ public class MachineryController {
 	 */
 	public void dispenseDrink(int idx) throws VMCSException {
 		storeCtrl.dispenseDrink(idx);
+// +++ apply observer pattern XuMS 2015/10/09
 //		if (ml != null)
 //			ml.getCashStoreDisplay().update();
+// --- apply observer pattern XuMS 2015/10/09
 
 	}
 
@@ -192,8 +201,10 @@ public class MachineryController {
 	 */
 	public void giveChange(int idx, int numOfCoins) throws VMCSException {
 		storeCtrl.giveChange(idx, numOfCoins);
-		if (ml != null)
-			ml.getCashStoreDisplay().update();
+// +++ apply observer pattern XuMS 2015/10/09
+//		if (ml != null)
+//			ml.getCashStoreDisplay().update();
+// --- apply observer pattern XuMS 2015/10/09
 	}
 	
 	/**
@@ -204,4 +215,41 @@ public class MachineryController {
 			ml.refresh();
 		}
 	}
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof DrinksStoreItem){
+            ml.getDrinksStoreDisplay().update();
+        }else if (o instanceof CashStoreItem){
+            ml.getCashStoreDisplay().update();
+        }
+    }
+    
+    private void establishObservation(){
+
+        StoreItem[] storeItems = storeCtrl.getStoreItems(Store.CASH);
+        for (StoreItem item : storeItems) {
+            item.addObserver(this);
+        }
+        
+        storeItems = storeCtrl.getStoreItems(Store.DRINK);
+        for (StoreItem item : storeItems) {
+            item.addObserver(this);
+        }
+    }
+    
+    private void closeDownObservation(){
+        
+        StoreItem[] storeItems = storeCtrl.getStoreItems(Store.CASH);
+        for (StoreItem item : storeItems) {
+            item.deleteObserver(this);
+        }
+        
+        storeItems = storeCtrl.getStoreItems(Store.DRINK);
+        for (StoreItem item : storeItems) {
+            item.deleteObserver(this);
+        }
+    }
+    
+    
 }//End of class MachineryController
