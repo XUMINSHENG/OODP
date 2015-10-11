@@ -150,7 +150,11 @@ public class DrinkSelectionItem extends Panel{
 			this.setItemState(false);
 		}
 		else{
-			this.setItemState(false);
+// +++ apply observer pattern XuMS 2015/10/09                
+                        //bug fixing, originally, it is set false no matter what
+                        //this.setItemState(false);
+			this.setItemState(true);
+// --- apply observer pattern XuMS 2015/10/09
 		}
 	}
 

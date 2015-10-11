@@ -176,8 +176,12 @@ public class MaintenanceController {
 		try {
 			cc = sctrl.transferAll();
 			mpanel.displayCoins(cc);
-			machctrl.displayCoinStock();
-			// the cash qty current is displayed in the Maintenance panel needs to be update to be 0;
+			
+// +++ apply observer pattern XuMS 2015/10/09
+//                        machctrl.displayCoinStock();
+// --- apply observer pattern XuMS 2015/10/09
+
+                        // the cash qty current is displayed in the Maintenance panel needs to be update to be 0;
 			// not required.
 			mpanel.updateCurrentQtyDisplay(Store.CASH, 0);
 		} catch (VMCSException e) {
