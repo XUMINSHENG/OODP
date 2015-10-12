@@ -3,14 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/state/PaymentState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/system/MainController.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/state/TransactionState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/state/InitialState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/state/MaintenceState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/state/IdleState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/customer/TransactionController.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/state/FaultState.java</file>
+            <file>file:/D:/OODP/VMCS_State_Liu/src/sg/edu/nus/iss/vmcs/customer/TransactionController.java</file>
         </group>
     </open-files>
 </project-private>
