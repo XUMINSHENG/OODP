@@ -75,7 +75,7 @@ public class ChangeGiver {
 		}
 		catch(VMCSException ex){
                         txCtrl.setState(new FaultState());
-			txCtrl.handle();
+			txCtrl.terminateFault();
 			return false;
 		}
 		return true;

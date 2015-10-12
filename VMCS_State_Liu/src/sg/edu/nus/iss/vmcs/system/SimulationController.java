@@ -154,7 +154,7 @@ public class SimulationController {
 		TransactionController cctrl;
 		cctrl = mCtrl.getTransactionController();
 		scp.setActive(SimulatorControlPanel.ACT_CUSTOMER, false);
-		cctrl.handle();
+		cctrl.displayCustomerPanel();
 	}
 
 	/**

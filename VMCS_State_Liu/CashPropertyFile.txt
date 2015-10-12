@@ -1,5 +1,5 @@
 #
-#Mon Oct 12 15:28:54 SGT 2015
+#Wed Oct 07 22:48:07 CST 2015
 Name5=$1
 Name4=50C
 Name3=20C
@@ -11,11 +11,11 @@ NumOfItems=5
 Value3=20
 Value2=10
 Value1=5
-Quantity5=72
-Quantity4=31
-Quantity3=27
-Quantity2=28
-Quantity1=59
+Quantity5=71
+Quantity4=30
+Quantity3=21
+Quantity2=18
+Quantity1=60
 Weight5=42.2
 Weight4=35.0
 Weight3=18.5

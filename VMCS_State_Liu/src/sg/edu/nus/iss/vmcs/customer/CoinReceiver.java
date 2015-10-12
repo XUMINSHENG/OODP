@@ -91,7 +91,7 @@ public class CoinReceiver {
 			txCtrl.getCustomerPanel().setTotalMoneyInserted(getTotalInserted());
 			txCtrl.getCustomerPanel().setChange("");
                         txCtrl.setTotal(getTotalInserted());
-			txCtrl.handle();
+			txCtrl.processMoneyReceived();
 		}
 	}
 
@@ -120,7 +120,7 @@ public class CoinReceiver {
 		}
 		catch(VMCSException ex){
                         txCtrl.setState(new FaultState());
-			txCtrl.handle();
+			txCtrl.terminateFault();
 			return false;
 		}
 		return true;
