@@ -103,8 +103,16 @@ public class TransactionController {
         this.changeGiven = changeGiven;
     }
 
+    public boolean isChangeGiven() {
+        return changeGiven;
+    }
+
     public void setDrinkDispensed(boolean drinkDispensed) {
         this.drinkDispensed = drinkDispensed;
+    }
+
+    public boolean isDrinkDispensed() {
+        return drinkDispensed;
     }
 
     public void setPrice(int price) {
@@ -141,6 +149,7 @@ public class TransactionController {
 
     public void refreshMachineryDisplay() {
         mainCtrl.getMachineryController().refreshMachineryDisplay();
+
     }
 
     public MainController getMainController() {
