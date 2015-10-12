@@ -218,9 +218,9 @@ public class MachineryController implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        if (o instanceof DrinksStoreItem){
+        if (arg.toString().equals("Drinks")){
             ml.getDrinksStoreDisplay().update();
-        }else if (o instanceof CashStoreItem){
+        }else if (arg.toString().equals("Cash")){
             ml.getCashStoreDisplay().update();
         }
     }

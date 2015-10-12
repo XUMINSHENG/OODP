@@ -66,8 +66,8 @@ public class StoreItem extends Observable{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
                 
-                super.setChanged();
-                super.notifyObservers();
+                this.setChanged();
+                this.notifyObservers(null);
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class StoreItem extends Observable{
 		if (quantity < 0)
 			quantity = 0;
                 
-                super.setChanged();
-                super.notifyObservers();
+                this.setChanged();
+                this.notifyObservers(null);
 	}
 
 	/**
@@ -103,8 +103,8 @@ public class StoreItem extends Observable{
 	public void increment() {
 		quantity++;
                 
-                super.setChanged();
-                super.notifyObservers();
+                this.setChanged();
+                this.notifyObservers(null);
 	}
         
         
