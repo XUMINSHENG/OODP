@@ -20,9 +20,9 @@ public class PaymentState implements TransactionState{
         int price = txCtrl.getPrice();
         if (total >= price) {
             txCtrl.setState(new CompleteState());
+            txCtrl.completeTransaction();
             System.out.println("Set Next State:" + txCtrl.getState().getClass().getName());
             System.out.println(this.getClass().getName()+" end!");
-            txCtrl.handle();
             return true;
         } else {
             txCtrl.getCoinReceiver().continueReceive();

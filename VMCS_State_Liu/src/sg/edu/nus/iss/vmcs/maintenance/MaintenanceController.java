@@ -20,8 +20,6 @@ import sg.edu.nus.iss.vmcs.system.MainController;
 import sg.edu.nus.iss.vmcs.system.SimulatorControlPanel;
 import sg.edu.nus.iss.vmcs.util.MessageDialog;
 import sg.edu.nus.iss.vmcs.util.VMCSException;
-import sg.edu.nus.iss.vmcs.state.MaintenceState;
-import sg.edu.nus.iss.vmcs.customer.TransactionController;
 
 /**
  * This control object handles the system maintenance use case.
@@ -101,9 +99,7 @@ public class MaintenanceController {
 			MachineryController machctrl = mCtrl.getMachineryController();
 			machctrl.setDoorState(false);
 			//Terminate customer transaction
-                        TransactionController txCtrl = mCtrl.getTransactionController();
-			txCtrl.setState(new MaintenceState());
-                        txCtrl.handle();
+			mCtrl.getTransactionController().terminateTransaction();
 		}
 	}
 

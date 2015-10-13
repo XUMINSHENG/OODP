@@ -9,7 +9,6 @@ package sg.edu.nus.iss.vmcs.customer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import sg.edu.nus.iss.vmcs.state.CancelState;
 
 /**
  * This control object monitors the Terminate Button on the Customer Panel and informs the Transaction
@@ -32,7 +31,6 @@ public class TerminateButtonListener implements ActionListener{
 	 * This method performs actions in response to the terminate button being pressed.
 	 */
 	public void actionPerformed(ActionEvent ev){
-                txCtrl.setState(new CancelState());
-		txCtrl.handle();
+		txCtrl.cancelTransaction();
 	}
 }//End of class TerminateButtonListener
