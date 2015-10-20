@@ -14,6 +14,7 @@ import sg.edu.nus.iss.vmcs.store.DrinksStoreItem;
 import sg.edu.nus.iss.vmcs.store.Store;
 import sg.edu.nus.iss.vmcs.store.StoreController;
 import sg.edu.nus.iss.vmcs.store.StoreItem;
+import sg.edu.nus.iss.vmcs.store.StoreItemChangeManager;
 import sg.edu.nus.iss.vmcs.store.StoreObject;
 import sg.edu.nus.iss.vmcs.system.MainController;
 import sg.edu.nus.iss.vmcs.util.VMCSException;
@@ -149,6 +150,7 @@ public class DispenseController implements Observer{
 		return true;
 	}
 
+// +++ apply observer pattern XuMS 2015/10/09
     @Override
     public void update(Observable o, Object arg) {
         if (o instanceof DrinksStoreItem){
@@ -169,16 +171,19 @@ public class DispenseController implements Observer{
 
         StoreItem[] storeItems = txCtrl.getMainController().getStoreController().getStoreItems(Store.DRINK);
         for (StoreItem item : storeItems) {
-            item.addObserver(this);
+            StoreItemChangeManager.getInstance().register(item, this);
         }
+                
     }
     
     private void closeDownObservation(){
         
         StoreItem[] storeItems = txCtrl.getMainController().getStoreController().getStoreItems(Store.DRINK);
         for (StoreItem item : storeItems) {
-            item.deleteObserver(this);
+            StoreItemChangeManager.getInstance().unregister(item, this);
         }
+
     }    
+// --- apply observer pattern XuMS 2015/10/09
     
 }//End of class DispenseController

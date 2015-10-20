@@ -65,9 +65,11 @@ public class StoreItem extends Observable{
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
-                
+
+// +++ apply observer pattern XuMS 2015/10/09
                 this.setChanged();
                 this.notifyObservers(null);
+// --- apply observer pattern XuMS 2015/10/09
 	}
 
 	/**
@@ -92,9 +94,11 @@ public class StoreItem extends Observable{
 		quantity--;
 		if (quantity < 0)
 			quantity = 0;
-                
+
+// +++ apply observer pattern XuMS 2015/10/09
                 this.setChanged();
                 this.notifyObservers(null);
+// --- apply observer pattern XuMS 2015/10/09
 	}
 
 	/**
@@ -102,10 +106,29 @@ public class StoreItem extends Observable{
 	 */
 	public void increment() {
 		quantity++;
-                
+
+// +++ apply observer pattern XuMS 2015/10/09
                 this.setChanged();
                 this.notifyObservers(null);
+// --- apply observer pattern XuMS 2015/10/09
 	}
-        
+
+    
+// +++ apply observer pattern XuMS 2015/10/09
+    @Override
+    public synchronized void addObserver(Observer o) {
+        StoreItemChangeManager.getInstance().register(this, o);
+    }
+
+    @Override
+    public synchronized void deleteObserver(Observer o) {
+        StoreItemChangeManager.getInstance().unregister(this, o);
+    }
+    
+    @Override
+    public void notifyObservers(Object arg) {
+        StoreItemChangeManager.getInstance().notifyObservers(this,arg);
+    } 
+// --- apply observer pattern XuMS 2015/10/09
         
 }//End of class StoreItem

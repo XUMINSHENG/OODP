@@ -216,6 +216,7 @@ public class MachineryController implements Observer{
 		}
 	}
 
+// +++ apply observer pattern XuMS 2015/10/09
     @Override
     public void update(Observable o, Object arg) {
         if (arg.toString().equals("Drinks")){
@@ -227,29 +228,33 @@ public class MachineryController implements Observer{
     
     private void establishObservation(){
 
-        StoreItem[] storeItems = storeCtrl.getStoreItems(Store.CASH);
+        StoreItem[] storeItems = null;
+        storeItems = storeCtrl.getStoreItems(Store.CASH);
         for (StoreItem item : storeItems) {
-            item.addObserver(this);
+            StoreItemChangeManager.getInstance().register(item, this);
         }
         
         storeItems = storeCtrl.getStoreItems(Store.DRINK);
         for (StoreItem item : storeItems) {
-            item.addObserver(this);
+            StoreItemChangeManager.getInstance().register(item, this);
         }
+        
+
     }
     
     private void closeDownObservation(){
         
         StoreItem[] storeItems = storeCtrl.getStoreItems(Store.CASH);
         for (StoreItem item : storeItems) {
-            item.deleteObserver(this);
+            StoreItemChangeManager.getInstance().unregister(item, this);
         }
         
         storeItems = storeCtrl.getStoreItems(Store.DRINK);
         for (StoreItem item : storeItems) {
-            item.deleteObserver(this);
+            StoreItemChangeManager.getInstance().unregister(item, this);
         }
+
     }
-    
+// --- apply observer pattern XuMS 2015/10/09
     
 }//End of class MachineryController
