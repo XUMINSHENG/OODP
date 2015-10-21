@@ -9,7 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sg.edu.nus.iss.vmcs.customer.ChangeGiver;
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
-import sg.edu.nus.iss.vmcs.customer.CustomerPanel;
 import sg.edu.nus.iss.vmcs.customer.DispenseController;
 import sg.edu.nus.iss.vmcs.customer.TransactionController;
 import sg.edu.nus.iss.vmcs.store.DrinksBrand;
@@ -47,8 +46,8 @@ public class IdleState implements TransactionControllerState{
             changeGiver.displayChangeStatus();
             dispenseCtrl.allowSelection(false);
             txCtrl.getCustomerPanel().setTerminateButtonActive(true);
-            txCtrl.setState(new TransactionState(txCtrl));
             coinReceiver.startReceiver();
+            txCtrl.setState(new TransactionState(txCtrl));
     }
 
     @Override
