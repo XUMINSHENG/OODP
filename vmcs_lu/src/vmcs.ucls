@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.8" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="sg.edu.nus.iss.vmcs.store.CashStoreItem" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/CashStoreItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="75" width="157" x="469" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="sg.edu.nus.iss.vmcs.store.Coin" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/Coin.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="165" width="152" x="383" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="sg.edu.nus.iss.vmcs.system.MainController" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/MainController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="237" width="304" x="2531" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="sg.edu.nus.iss.vmcs.customer.ChangeGiver" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/ChangeGiver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="129" width="225" x="1934" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="sg.edu.nus.iss.vmcs.maintenance.DrinkDisplay" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/DrinkDisplay.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="147" width="229" x="3672" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="sg.edu.nus.iss.vmcs.store.DrinksBrand" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/DrinksBrand.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="129" width="150" x="193" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="sg.edu.nus.iss.vmcs.maintenance.TotalCashButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/TotalCashButtonListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="294" x="2966" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="sg.edu.nus.iss.vmcs.maintenance.DrinkDisplayListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/DrinkDisplayListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="273" x="2355" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="sg.edu.nus.iss.vmcs.store.StoreItem" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/StoreItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="201" width="183" x="320" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="sg.edu.nus.iss.vmcs.maintenance.ButtonItem" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/ButtonItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="201" width="203" x="3755" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="sg.edu.nus.iss.vmcs.system.DrinkPropertyLoader" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/DrinkPropertyLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="180" x="2645" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="sg.edu.nus.iss.vmcs.maintenance.MaintenancePanel" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/MaintenancePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="345" width="300" x="3956" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="sg.edu.nus.iss.vmcs.store.DrinksStore" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/DrinksStore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="75" width="129" x="647" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="sg.edu.nus.iss.vmcs.system.Environment" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/Environment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="147" width="161" x="568" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="sg.edu.nus.iss.vmcs.maintenance.PasswordListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/PasswordListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="220" x="1094" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="sg.edu.nus.iss.vmcs.store.StoreObject" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/StoreObject.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="129" width="141" x="288" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="sg.edu.nus.iss.vmcs.maintenance.AccessManager" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/AccessManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="147" width="247" x="1094" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="sg.edu.nus.iss.vmcs.maintenance.ExitButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/ExitButtonListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="258" x="2668" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="sg.edu.nus.iss.vmcs.system.FilePropertyLoader" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/FilePropertyLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="219" width="175" x="2684" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="sg.edu.nus.iss.vmcs.customer.DrinkSelectionBox" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/DrinkSelectionBox.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="147" width="253" x="2917" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="sg.edu.nus.iss.vmcs.machinery.MachinerySimulatorPanel" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/machinery/MachinerySimulatorPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="201" width="324" x="730" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="sg.edu.nus.iss.vmcs.machinery.MachineryController" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/machinery/MachineryController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="327" width="226" x="730" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="sg.edu.nus.iss.vmcs.maintenance.Password" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/Password.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="211" x="996" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="sg.edu.nus.iss.vmcs.system.CashPropertyLoader" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/CashPropertyLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="180" x="2865" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="sg.edu.nus.iss.vmcs.system.ActivateCustomerPanelButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/ActivateCustomerPanelButtonListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="93" width="353" x="4283" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="sg.edu.nus.iss.vmcs.customer.DispenseController" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/DispenseController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="165" width="258" x="1310" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="sg.edu.nus.iss.vmcs.customer.TerminateButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/TerminateButtonListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="286" x="1608" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="sg.edu.nus.iss.vmcs.system.SimulationController" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/SimulationController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="255" width="302" x="5031" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="sg.edu.nus.iss.vmcs.machinery.StoreViewer" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/machinery/StoreViewer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="147" width="200" x="1268" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="sg.edu.nus.iss.vmcs.store.Store" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/Store.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="219" width="188" x="480" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="sg.edu.nus.iss.vmcs.system.ActivateMaintainerPanelButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/ActivateMaintainerPanelButtonListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="93" width="358" x="5428" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="sg.edu.nus.iss.vmcs.customer.CoinInputBox" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/CoinInputBox.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="226" x="3210" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="sg.edu.nus.iss.vmcs.maintenance.MaintenanceController" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/MaintenanceController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="291" width="240" x="2172" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="sg.edu.nus.iss.vmcs.maintenance.ButtonItemDisplay" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/ButtonItemDisplay.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="147" width="242" x="3672" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="sg.edu.nus.iss.vmcs.customer.CustomerPanel" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/CustomerPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="453" width="275" x="3357" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="sg.edu.nus.iss.vmcs.machinery.DoorListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/machinery/DoorListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="216" x="474" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="sg.edu.nus.iss.vmcs.store.CashStore" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/CashStore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="129" width="195" x="816" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="sg.edu.nus.iss.vmcs.system.SimulatorControlPanel" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/SimulatorControlPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="219" width="270" x="5807" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="sg.edu.nus.iss.vmcs.machinery.Door" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/machinery/Door.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="157" x="729" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="sg.edu.nus.iss.vmcs.system.BeginSimulationButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/BeginSimulationButtonListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="315" x="4676" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="sg.edu.nus.iss.vmcs.util.LabelledValue" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/util/LabelledValue.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="165" width="197" x="3518" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="sg.edu.nus.iss.vmcs.customer.CoinReceiver" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/CoinReceiver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="255" width="227" x="2378" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="sg.edu.nus.iss.vmcs.system.ActivateMachineryPanelButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/ActivateMachineryPanelButtonListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="93" width="357" x="5031" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="sg.edu.nus.iss.vmcs.customer.CoinButton" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/CoinButton.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="183" width="184" x="3252" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="sg.edu.nus.iss.vmcs.customer.DrinkSelectionItem" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/DrinkSelectionItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="345" width="313" x="2899" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="sg.edu.nus.iss.vmcs.maintenance.PriceDisplayListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/PriceDisplayListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="272" x="2043" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="sg.edu.nus.iss.vmcs.customer.TransactionController" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/TransactionController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="507" width="266" x="2378" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="48" language="java" name="sg.edu.nus.iss.vmcs.store.PropertyLoader" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/PropertyLoader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="165" width="167" x="1228" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="49" language="java" name="sg.edu.nus.iss.vmcs.maintenance.CoinDisplay" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/CoinDisplay.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="129" width="226" x="3300" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="sg.edu.nus.iss.vmcs.util.VMCSException" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/util/VMCSException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="212" x="805" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="sg.edu.nus.iss.vmcs.machinery.StoreViewerListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/machinery/StoreViewerListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="260" x="926" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="sg.edu.nus.iss.vmcs.util.LabelledDisplay" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/util/LabelledDisplay.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="201" width="203" x="3998" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="53" language="java" name="sg.edu.nus.iss.vmcs.customer.DrinkSelectionListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/DrinkSelectionListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="292" x="2199" y="1156"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="54" language="java" name="sg.edu.nus.iss.vmcs.util.MessageDialog" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/util/MessageDialog.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="215" x="277" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="55" language="java" name="sg.edu.nus.iss.vmcs.store.StoreController" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/StoreController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="399" width="290" x="1228" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="sg.edu.nus.iss.vmcs.system.EndSimulationButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/system/EndSimulationButtonListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="274" x="2531" y="663"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="57" language="java" name="sg.edu.nus.iss.vmcs.Vmcs" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/Vmcs.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="111" width="125" x="77" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="58" language="java" name="sg.edu.nus.iss.vmcs.customer.CoinInputListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/customer/CoinInputListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="215" x="2123" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" name="sg.edu.nus.iss.vmcs.maintenance.TransferCashButtonListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/TransferCashButtonListener.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="93" width="312" x="1691" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="sg.edu.nus.iss.vmcs.maintenance.CoinDisplayListener" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/maintenance/CoinDisplayListener.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="93" width="270" x="1381" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="61" language="java" name="sg.edu.nus.iss.vmcs.store.DrinksStoreItem" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/store/DrinksStoreItem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="75" width="205" x="43" y="1433"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="62" language="java" name="sg.edu.nus.iss.vmcs.util.WarningDisplay" project="vmcs" 
+    file="/vmcs/src/sg/edu/nus/iss/vmcs/util/WarningDisplay.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="129" width="285" x="3478" y="1980"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="63">    
+    <bendpoint x="4231" y="422"/>    
+    <bendpoint x="4231" y="663"/>    
+    <bendpoint x="4231" y="1156"/>    
+    <bendpoint x="4231" y="1433"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="64" name="invalidPswd"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="67" name="dStore"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="70" name="bi"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="73" name="lbdCollectCoins"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="76" name="items"/>      
+      <multiplicity id="77" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <bendpoint x="3466" y="1156"/>    
+    <bendpoint x="3466" y="1433"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="79" name="wndNoChangeAvailable"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="82" name="mctrl"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="85" name="dispenseCtrl"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="88" name="mCtrl"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="91" name="mCtrl"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <bendpoint x="1216" y="1156"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="94" name="storeCtrl"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="97" name="ctrl"/>      
+      <multiplicity id="98" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="99">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="100" name="btnCoinButton"/>      
+      <multiplicity id="101" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="103" name="cashDisplay"/>      
+      <multiplicity id="104" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="105">    
+    <bendpoint x="3487" y="1156"/>    
+    <bendpoint x="3487" y="1433"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="106" name="wndInvalidCoin"/>      
+      <multiplicity id="107" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="108">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="109" name="mainCtrl"/>      
+      <multiplicity id="110" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="111">    
+    <end type="SOURCE" refId="59" navigable="false">      
+      <attribute id="112" name="mctrl"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="114">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="115">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="116" name="mctrl"/>      
+      <multiplicity id="117" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="119" name="drinkSelectionBox"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="122" name="ml"/>      
+      <multiplicity id="123" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="125" name="mCtrl"/>      
+      <multiplicity id="126" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="128" name="am"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="131" name="mctrl"/>      
+      <multiplicity id="132" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="133">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="134" name="bi"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="136">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="137">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="138" name="txCtrl"/>      
+      <multiplicity id="139" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="140">    
+    <end type="SOURCE" refId="45" navigable="false">      
+      <attribute id="141" name="wnd"/>      
+      <multiplicity id="142" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="143">    
+    <bendpoint x="3944" y="663"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="144" name="price"/>      
+      <multiplicity id="145" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <bendpoint x="2886" y="1156"/>    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="147" name="custPanel"/>      
+      <multiplicity id="148" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="150" name="actrl"/>      
+      <multiplicity id="151" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="152">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="153" name="txCtrl"/>      
+      <multiplicity id="154" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="155">    
+    <end type="SOURCE" refId="42" navigable="false">      
+      <attribute id="156" name="txCtrl"/>      
+      <multiplicity id="157" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="158">    
+    <bendpoint x="677" y="1433"/>    
+    <bendpoint x="677" y="1156"/>    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <association id="159">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="160" name="lbdCollectCan"/>      
+      <multiplicity id="161" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="162">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="163" name="drinksDisplay"/>      
+      <multiplicity id="164" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="165">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="166" name="txCtrl"/>      
+      <multiplicity id="167" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="168">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="169" name="content"/>      
+      <multiplicity id="170" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="171">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="172" name="viewItems"/>      
+      <multiplicity id="173" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="174">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="175" name="door"/>      
+      <multiplicity id="176" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="177">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="178" name="mainCtrl"/>      
+      <multiplicity id="179" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="180">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="181" name="txCtrl"/>      
+      <multiplicity id="182" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="183">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="184" name="lbdTotalMoneyInserted"/>      
+      <multiplicity id="185" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="186">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="187" name="mctrl"/>      
+      <multiplicity id="188" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="189">    
+    <end type="SOURCE" refId="61"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="190">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="191" name="drinksLoader"/>      
+      <multiplicity id="192" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="193">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="194" name="txCtrl"/>      
+      <multiplicity id="195" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="196">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="197" name="mainCtrl"/>      
+      <multiplicity id="198" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="199">    
+    <end type="SOURCE" refId="51" navigable="false">      
+      <attribute id="200" name="storeCtrl"/>      
+      <multiplicity id="201" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="202">    
+    <end type="SOURCE" refId="46" navigable="false">      
+      <attribute id="203" name="mctrl"/>      
+      <multiplicity id="204" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="205">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="206" name="cDisplay"/>      
+      <multiplicity id="207" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="208">    
+    <bendpoint x="3986" y="422"/>    
+    <bendpoint x="3986" y="663"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="209" name="collectCash"/>      
+      <multiplicity id="210" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="211">    
+    <bendpoint x="2865" y="1156"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="212" name="txCtrl"/>      
+      <multiplicity id="213" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="214">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="215" name="mCtrl"/>      
+      <multiplicity id="216" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="217">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="218" name="dDisplay"/>      
+      <multiplicity id="219" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="220">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="221" name="machineryCtrl"/>      
+      <multiplicity id="222" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="223">    
+    <bendpoint x="1237" y="663"/>    
+    <bendpoint x="1237" y="1156"/>    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="224" name="storeCtrl"/>      
+      <multiplicity id="225" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="226">    
+    <bendpoint x="5816" y="1156"/>    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="227" name="simulationCtrl"/>      
+      <multiplicity id="228" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="229">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="230">    
+    <bendpoint x="3556" y="422"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="231" name="mctrl"/>      
+      <multiplicity id="232" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="233">    
+    <bendpoint x="5837" y="1156"/>    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="234" name="scp"/>      
+      <multiplicity id="235" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="236">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="237" name="machineryCtrl"/>      
+      <multiplicity id="238" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="239">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="240" name="storeCtrl"/>      
+      <multiplicity id="241" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="242">    
+    <end type="SOURCE" refId="53" navigable="false">      
+      <attribute id="243" name="txCtrl"/>      
+      <multiplicity id="244" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="245">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="246" name="maintenanceCtrl"/>      
+      <multiplicity id="247" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="248">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="249" name="txCtrl"/>      
+      <multiplicity id="250" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="251">    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="252" name="mctrl"/>      
+      <multiplicity id="253" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="254">    
+    <bendpoint x="698" y="663"/>    
+    <bendpoint x="698" y="1156"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="255" name="storeCtrl"/>      
+      <multiplicity id="256" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="257">    
+    <bendpoint x="4007" y="422"/>    
+    <bendpoint x="4007" y="663"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="258" name="password"/>      
+      <multiplicity id="259" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="260">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="261" name="ctrl"/>      
+      <multiplicity id="262" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="263">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="264" name="simulatorCtrl"/>      
+      <multiplicity id="265" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="266">    
+    <bendpoint x="2442" y="663"/>    
+    <bendpoint x="1279" y="1156"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="267" name="storeCtrl"/>      
+      <multiplicity id="268" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="269">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="270" name="ctrl"/>      
+      <multiplicity id="271" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="272">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="273" name="items"/>      
+      <multiplicity id="274" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="275">    
+    <bendpoint x="1258" y="1156"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="276" name="storeCtrl"/>      
+      <multiplicity id="277" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="278">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="279">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="280" name="cashLoader"/>      
+      <multiplicity id="281" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="282">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="283" name="drinkSelectionItems"/>      
+      <multiplicity id="284" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="45" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="285">    
+    <end type="SOURCE" refId="58" navigable="false">      
+      <attribute id="286" name="coinReceiver"/>      
+      <multiplicity id="287" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="288">    
+    <bendpoint x="656" y="1433"/>    
+    <bendpoint x="656" y="1156"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <association id="289">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="290" name="cStore"/>      
+      <multiplicity id="291" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="292">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="293" name="coinReceiver"/>      
+      <multiplicity id="294" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="295">    
+    <bendpoint x="3965" y="422"/>    
+    <bendpoint x="3965" y="663"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="296" name="totalCash"/>      
+      <multiplicity id="297" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="298">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="299" name="coinInputBox"/>      
+      <multiplicity id="300" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="301">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="302" name="mCtrl"/>      
+      <multiplicity id="303" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="304">    
+    <bendpoint x="3577" y="422"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="305" name="mpanel"/>      
+      <multiplicity id="306" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="307">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="308" name="pswd"/>      
+      <multiplicity id="309" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="310">    
+    <end type="SOURCE" refId="60" navigable="false">      
+      <attribute id="311" name="mctrl"/>      
+      <multiplicity id="312" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="313">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="314" name="changeGiver"/>      
+      <multiplicity id="315" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="316">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="317" name="ctrl"/>      
+      <multiplicity id="318" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="319">    
+    <bendpoint x="4252" y="422"/>    
+    <bendpoint x="4252" y="663"/>    
+    <bendpoint x="4252" y="1156"/>    
+    <bendpoint x="4252" y="1433"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="320" name="validPswd"/>      
+      <multiplicity id="321" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="322">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <realization id="323">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false" static="false"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
