@@ -74,8 +74,8 @@ public class IdleState implements TransactionControllerState{
     @Override
     public void startMaintenance() {
 	dispenseCtrl.allowSelection(false);
-	coinReceiver.stopReceive();
-	coinReceiver.refundCash();
+	//coinReceiver.stopReceive();
+	//coinReceiver.refundCash();
 	if(txCtrl.getCustomerPanel()!=null){
 		txCtrl.getCustomerPanel().setTerminateButtonActive(false);
 	}

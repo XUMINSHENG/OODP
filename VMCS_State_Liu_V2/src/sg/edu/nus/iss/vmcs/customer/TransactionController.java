@@ -146,7 +146,6 @@ public class TransactionController {
 	 * money inserted by the customer.
 	 */
 	public void terminateFault(){
-            this.setState(new FaultState(this));
             state.terminateFault();
 	}
 	

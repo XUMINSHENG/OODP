@@ -58,6 +58,8 @@ public class TransactionState implements TransactionControllerState{
     public void completeTransaction() {
 	if (dispenseCtrl.dispenseDrink(selection)==false)
         {
+            txCtrl.setState(new FaultState());
+            txCtrl.terminateFault();
             return;
         }
 	int totalMoneyInserted=coinReceiver.getTotalInserted();
@@ -65,6 +67,8 @@ public class TransactionState implements TransactionControllerState{
 	if(change>0){
 		if(changeGiver.giveChange(change)==false)
                 {
+                    txCtrl.setState(new FaultState());
+                    txCtrl.terminateFault();
                     return;
                 }
 	}
@@ -73,6 +77,8 @@ public class TransactionState implements TransactionControllerState{
 	}
 	if(coinReceiver.storeCash()==false)
         {
+            txCtrl.setState(new FaultState());
+            txCtrl.terminateFault();
             return;
         }
         dispenseCtrl.allowSelection(true);

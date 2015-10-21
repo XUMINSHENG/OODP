@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/F:/OODP/VMCS_State_Liu_V2/src/sg/edu/nus/iss/vmcs/customer/CustomerPanel.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu_V2/src/sg/edu/nus/iss/vmcs/customer/transactionController/states/FaultState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu_V2/src/sg/edu/nus/iss/vmcs/customer/TransactionController.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu_V2/src/sg/edu/nus/iss/vmcs/customer/transactionController/states/TransactionState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu_V2/src/sg/edu/nus/iss/vmcs/customer/transactionController/states/MaintenanceState.java</file>
-            <file>file:/F:/OODP/VMCS_State_Liu_V2/src/sg/edu/nus/iss/vmcs/customer/transactionController/states/IdleState.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
