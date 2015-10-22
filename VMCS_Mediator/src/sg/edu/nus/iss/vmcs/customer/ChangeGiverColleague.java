@@ -45,20 +45,20 @@ public class ChangeGiverColleague extends PaymentColleague{
     }
     
     private void displayChangeStatus(){
-		CustomerPanel custPanel=getMediator().getTransactionController().getCustomerPanel();
-		if(custPanel==null)
-			return;
-		boolean isAnyDenoEmpty=false;
-		MainController mainCtrl=getMediator().getTransactionController().getMainController();
-		StoreController storeCtrl=mainCtrl.getStoreController();
-		StoreItem[] cashStoreItems=storeCtrl.getStore(Store.CASH).getItems();
-		for(int i=0;i<cashStoreItems.length;i++){
-			StoreItem storeItem=cashStoreItems[i];
-			CashStoreItem cashStoreItem=(CashStoreItem)storeItem;
-			int quantity=cashStoreItem.getQuantity();
-			if(quantity==0)
-				isAnyDenoEmpty=true;
-        	}
+	CustomerPanel custPanel=getMediator().getTransactionController().getCustomerPanel();
+	if(custPanel==null)
+		return;
+	boolean isAnyDenoEmpty=false;
+        MainController mainCtrl=getMediator().getTransactionController().getMainController();
+	StoreController storeCtrl=mainCtrl.getStoreController();
+	StoreItem[] cashStoreItems=storeCtrl.getStore(Store.CASH).getItems();
+	for(int i=0;i<cashStoreItems.length;i++){
+		StoreItem storeItem=cashStoreItems[i];
+		CashStoreItem cashStoreItem=(CashStoreItem)storeItem;
+		int quantity=cashStoreItem.getQuantity();
+		if(quantity==0)
+			isAnyDenoEmpty=true;
+        }
 	custPanel.displayChangeStatus(isAnyDenoEmpty);
     }
     

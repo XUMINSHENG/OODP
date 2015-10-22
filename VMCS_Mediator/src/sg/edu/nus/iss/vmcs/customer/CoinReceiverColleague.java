@@ -21,7 +21,6 @@ import sg.edu.nus.iss.vmcs.util.VMCSException;
  */
 public class CoinReceiverColleague extends PaymentColleague{
 
-    private final int PAYMENT_OPTION = PaymentMediator.PAYMENT_BY_COIN;
     private ArrayList coins;
     
     public CoinReceiverColleague(PaymentMediator m) {
@@ -42,7 +41,7 @@ public class CoinReceiverColleague extends PaymentColleague{
         coins.add(coin);
         int value = coin.getValue();
         setTotal(getTotal()+value);
-        getMediator().processPayment(PAYMENT_OPTION);
+        getMediator().processPayment();
     }
 
     @Override
@@ -60,9 +59,13 @@ public class CoinReceiverColleague extends PaymentColleague{
         CashStore store = (CashStore)getMediator().getTransactionController().getMainController().getStoreController().getStore(Store.CASH);
         Coin coin= store.findCoin(weight);
         if(coin==null){
-            getMediator().invalidPayment(PAYMENT_OPTION);
+            getMediator().invalidPayment();
 	}
 	else{
+            getMediator().getTransactionController().getCustomerPanel().setCoinInputBoxActive(false);
+            getMediator().getTransactionController().getCustomerPanel().displayInvalidCoin(false);
+            getMediator().getTransactionController().getCustomerPanel().setTotalMoneyInserted(getTotal());
+            getMediator().getTransactionController().getCustomerPanel().setChange("");
             process(coin);
         }
     }

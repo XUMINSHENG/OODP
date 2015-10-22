@@ -51,20 +51,21 @@ public class PaymentMediator {
         switch(option){
             case PAYMENT_BY_CARD:
                 cardReader.start();
-                this.paymentOption = PAYMENT_BY_CARD;
+                cardReader.setTotal(this.price);
             case PAYMENT_BY_COIN:
                 changeGiver.start();
                 coinReceiver.start();
-                this.paymentOption = PAYMENT_BY_COIN;
-//            default: error();
+            default: break;
         }
+        this.paymentOption = option;
+        txCtrl.getCustomerPanel().setPaymentOptionBoxActive(false);
     }
     
 //    when receive invalid coin or card
-    public void invalidPayment(int option){
-        switch(option){
+    public void invalidPayment(){
+        switch(paymentOption){
             case PAYMENT_BY_CARD:
-                
+                txCtrl.getCustomerPanel().displayInvalidCard(true);
             case PAYMENT_BY_COIN:
                 txCtrl.getCustomerPanel().displayInvalidCoin(true);
 		txCtrl.getCustomerPanel().setChange("Invalid Coin");
@@ -74,16 +75,16 @@ public class PaymentMediator {
     }
     
 //    once receive coin or read card
-    public void processPayment(int option){
-        switch(option){
+    public void processPayment(){
+        switch(paymentOption){
             case PAYMENT_BY_CARD:
-                
+                break;
             case PAYMENT_BY_COIN:
-                txCtrl.getCustomerPanel().setCoinInputBoxActive(false);
-		txCtrl.getCustomerPanel().displayInvalidCoin(false);
-		txCtrl.getCustomerPanel().setTotalMoneyInserted(coinReceiver.getTotal());
-		txCtrl.getCustomerPanel().setChange("");
-		txCtrl.processMoneyReceived(coinReceiver.getTotal());
+                if(coinReceiver.getTotal()>price){
+                    completePayment();
+                }else{
+                    continuePayment();
+                }
             default:
                 break;
         }
@@ -93,6 +94,7 @@ public class PaymentMediator {
     public void continuePayment(){
         switch(paymentOption){
             case PAYMENT_BY_CARD:
+                txCtrl.getCustomerPanel().setCardInsertBoxActive(true);
             case PAYMENT_BY_COIN:
                 txCtrl.getCustomerPanel().setCoinInputBoxActive(true);
             default:     
@@ -103,7 +105,7 @@ public class PaymentMediator {
     public void completePayment(){
         switch(paymentOption){
             case PAYMENT_BY_CARD:
-//                return ;
+                cardReader.complete();
             case PAYMENT_BY_COIN:
                 int change = coinReceiver.getTotal() - this.price;
                 if(change > 0){
@@ -133,6 +135,14 @@ public class PaymentMediator {
     public TransactionController getTransactionController(){
         return this.txCtrl;
     }   
+
+    public PaymentColleague getCoinReceiver() {
+        return coinReceiver;
+    }
+
+    public PaymentColleague getCardReader() {
+        return cardReader;
+    }
     
     
 }

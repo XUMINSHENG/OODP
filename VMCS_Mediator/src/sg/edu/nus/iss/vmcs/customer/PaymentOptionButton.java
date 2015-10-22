@@ -16,6 +16,7 @@ public class PaymentOptionButton extends Button{
     private int paymentOption;
     
     public PaymentOptionButton(String name, int option){
+        super(name);
         this.name = name;
         this.paymentOption = option;
     }

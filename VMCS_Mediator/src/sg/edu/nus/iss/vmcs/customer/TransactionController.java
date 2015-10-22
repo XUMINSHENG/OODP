@@ -77,8 +77,7 @@ public class TransactionController {
 		custPanel.display();
 		dispenseCtrl.updateDrinkPanel();
 		dispenseCtrl.allowSelection(true);
-                
-                
+               
 //		changeGiver.displayChangeStatus();
 //		coinReceiver.setActive(false);
 	}
@@ -122,7 +121,9 @@ public class TransactionController {
 		dispenseCtrl.allowSelection(false);
                 
 //                display payment option box
-		
+                mediator.resetPayment();
+		custPanel.setPaymentOptionBoxActive(true);
+                mediator.setPrice(price);
                 
 		custPanel.setTerminateButtonActive(true);
 	}
