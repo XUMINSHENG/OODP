@@ -19,31 +19,31 @@ public class CardReaderColleague extends PaymentColleague{
         super(m);
     }
 
-    @Override
-    public void start() {
-        reset();
-        getMediator().getTransactionController().getCustomerPanel().setCardInsertBoxActive(true);
-    }
-
-    @Override
-    public void process(StoreObject s) {
-        
-    }
-
-    @Override
-    public void complete() {
-        chargeCard(getTotal());
-    }
+//    @Override
+//    public void start() {
+//        reset();
+//        getMediator().getTransactionController().getCustomerPanel().setCardInsertBoxActive(true);
+//    }
+//
+//    @Override
+//    public void process(StoreObject s) {
+//        
+//    }
+//
+//    @Override
+//    public void complete() {
+//        chargeCard(getTotal());
+//    }
 
     @Override
     public void reset() {
-        this.card = null;
+        this.card = new Card();
     }
 
-    @Override
-    public void terminate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public void terminate() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
     public void readCard(String id){
 //        verify card id and get total money inside the card
@@ -51,22 +51,13 @@ public class CardReaderColleague extends PaymentColleague{
         c.setValue(100);
         
         if(c==null){
-            getMediator().invalidPayment();
+            getMediator().invalidPayment("Invalid Card");
         }
-        
-        int cardValue = card.getValue();
-        if(cardValue > getTotal()){
-            this.card = c;
-            getMediator().getTransactionController().getCustomerPanel().setCardInsertBoxActive(false);
-            getMediator().getTransactionController().getCustomerPanel().displayInvalidCard(false);
-            getMediator().getTransactionController().getCustomerPanel().setTotalMoneyInserted(getTotal());
-            complete();
-        }else{
-            getMediator().invalidPayment();
-        }
+        this.card = c;
+        getMediator().processPayment(c.getValue());
     }
     
-    private void chargeCard(int price){
+    public void chargeCard(int price){
         System.out.println("Charge " + price);
     }
     

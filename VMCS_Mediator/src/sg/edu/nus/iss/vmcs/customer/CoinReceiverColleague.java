@@ -22,81 +22,66 @@ import sg.edu.nus.iss.vmcs.util.VMCSException;
 public class CoinReceiverColleague extends PaymentColleague{
 
     private ArrayList coins;
+    private int totalInserted;
     
     public CoinReceiverColleague(PaymentMediator m) {
         super(m);
         reset();
     }
-
-    @Override
-    public void start() {
-        reset();
-        getMediator().getTransactionController().getCustomerPanel().setCoinInputBoxActive(true);
-        getMediator().getTransactionController().getCustomerPanel().setTotalMoneyInserted(0);
-    }
-
-    @Override
-    public void process(StoreObject s) {
-        Coin coin = (Coin)s;
-        coins.add(coin);
-        int value = coin.getValue();
-        setTotal(getTotal()+value);
-        getMediator().processPayment();
-    }
-
-    @Override
-    public void complete() {
-        storeCash();
-    }
-
+    
     @Override
     public void reset() {
         coins = new ArrayList();
-        setTotal(0);
+        this.totalInserted = 0;
     }
     
     public void receiveCoin(double weight){
-        CashStore store = (CashStore)getMediator().getTransactionController().getMainController().getStoreController().getStore(Store.CASH);
+        CashStore store = (CashStore)getMediator().getTxCtrl().getMainController().getStoreController().getStore(Store.CASH);
         Coin coin= store.findCoin(weight);
         if(coin==null){
-            getMediator().invalidPayment();
+            getMediator().invalidPayment("Invalid Coin");
 	}
 	else{
-            getMediator().getTransactionController().getCustomerPanel().setCoinInputBoxActive(false);
-            getMediator().getTransactionController().getCustomerPanel().displayInvalidCoin(false);
-            getMediator().getTransactionController().getCustomerPanel().setTotalMoneyInserted(getTotal());
-            getMediator().getTransactionController().getCustomerPanel().setChange("");
-            process(coin);
+            coins.add(coin);
+            this.totalInserted = this.totalInserted + coin.getValue();
+            getMediator().processPayment(this.totalInserted);
         }
     }
     
-    private boolean storeCash(){
-	MachineryController machineryCtrl=getMediator().getTransactionController().getMainController().getMachineryController();
+    public boolean storeCash(){
+	MachineryController machineryCtrl=getMediator().getTxCtrl().getMainController().getMachineryController();
 	try{
 		for(int i=0;i<coins.size();i++){
 			Coin coin=(Coin)coins.get(i);
 			machineryCtrl.storeCoin(coin);
 		}
 		reset();
-		getMediator().getTransactionController().getCustomerPanel().setTotalMoneyInserted(0);
+		getMediator().getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
 	}
 	catch(VMCSException ex){
-            getMediator().terminatePayment();
+            getMediator().cancelPayment();
 //		getMediator().getTransactionController().terminateFault();
 		return false;
 	}
 	return true;
     }
-
-    @Override
-    public void terminate() {
-        int total = getTotal();
-        if(total>0){
-            getMediator().getTransactionController().getCustomerPanel().setChange(total);
-            getMediator().getTransactionController().getCustomerPanel().setTotalMoneyInserted(0);
-            getMediator().getTransactionController().getCustomerPanel().displayInvalidCoin(false);
-        }
-        reset();
-        getMediator().getTransactionController().getCustomerPanel().setCoinInputBoxActive(false);
+    
+    public void stopReceive(){
+	CustomerPanel custPanel=getMediator().getTxCtrl().getCustomerPanel();
+	if(custPanel==null){
+		return;
+	}
+	custPanel.setCoinInputBoxActive(false);
     }
+	
+    public void refundCash(){
+	if(totalInserted==0)
+		return;
+	getMediator().getTxCtrl().getCustomerPanel().setChange(totalInserted);
+	getMediator().getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
+	getMediator().getTxCtrl().getCustomerPanel().displayInvalidCoin(false);
+	reset();
+    }
+    
+    
 }

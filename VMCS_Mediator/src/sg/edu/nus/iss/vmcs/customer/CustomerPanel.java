@@ -124,7 +124,7 @@ public class CustomerPanel extends Dialog {
 			}
 		});
 		
-                paymentOptionBox = new PaymentOptionBox(txCtrl.getMediator());
+                paymentOptionBox = new PaymentOptionBox(txCtrl);
                 cardInsertBox = new CardInsertBox(txCtrl);
 		coinInputBox=new CoinInputBox(txCtrl);
 		drinkSelectionBox=new DrinkSelectionBox(txCtrl);

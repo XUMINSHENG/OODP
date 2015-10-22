@@ -22,8 +22,8 @@ public class CardInsertBox extends Panel{
         this.txCtrl = t;
         validCard = new CardButton("Valid Card","valid card");
         invalidCard = new CardButton("Invalid Card","invalid card");
-        validCard.addActionListener(new CardInsertListener((CardReaderColleague)this.txCtrl.getMediator().getCardReader()));
-        invalidCard.addActionListener(new CardInsertListener((CardReaderColleague)this.txCtrl.getMediator().getCardReader()));
+        validCard.addActionListener(new CardInsertListener(MediatorFactory.getCardMediator().getCardReader()));
+        invalidCard.addActionListener(new CardInsertListener(MediatorFactory.getCardMediator().getCardReader()));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(validCard);
         add(invalidCard);

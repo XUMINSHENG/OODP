@@ -24,32 +24,32 @@ public class ChangeGiverColleague extends PaymentColleague{
         super(m);
     }
 
-    @Override
-    public void start() {
-        displayChangeStatus();
-    }
-
-    @Override
-    public void process(StoreObject s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void complete() {
-        giveChange(getTotal());
-    }
+//    @Override
+//    public void start() {
+//        displayChangeStatus();
+//    }
+//
+//    @Override
+//    public void process(StoreObject s) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public void complete(int total) {
+//        giveChange(total);
+//    }
 
     @Override
     public void reset() {
-        getMediator().getTransactionController().getCustomerPanel().resetChange();
+        
     }
     
-    private void displayChangeStatus(){
-	CustomerPanel custPanel=getMediator().getTransactionController().getCustomerPanel();
+    public void displayChangeStatus(){
+	CustomerPanel custPanel=getMediator().getTxCtrl().getCustomerPanel();
 	if(custPanel==null)
 		return;
 	boolean isAnyDenoEmpty=false;
-        MainController mainCtrl=getMediator().getTransactionController().getMainController();
+        MainController mainCtrl=getMediator().getTxCtrl().getMainController();
 	StoreController storeCtrl=mainCtrl.getStoreController();
 	StoreItem[] cashStoreItems=storeCtrl.getStore(Store.CASH).getItems();
 	for(int i=0;i<cashStoreItems.length;i++){
@@ -62,41 +62,36 @@ public class ChangeGiverColleague extends PaymentColleague{
 	custPanel.displayChangeStatus(isAnyDenoEmpty);
     }
     
-    private boolean giveChange(int changeRequired){
+    public boolean giveChange(int changeRequired){
 	if(changeRequired==0)
-		return true;
+            return true;
     	try{
-    		int changeBal=changeRequired;
-		MainController mainCtrl=getMediator().getTransactionController().getMainController();
-		StoreController storeCtrl=mainCtrl.getStoreController();
-		int cashStoreSize=storeCtrl.getStoreSize(Store.CASH); 
-		for(int i=cashStoreSize-1;i>=0;i--){
-    			StoreItem cashStoreItem=storeCtrl.getStore(Store.CASH).getStoreItem(i);
-    			int quantity=cashStoreItem.getQuantity();
-    			Coin coin=(Coin)cashStoreItem.getContent();
-				int value=coin.getValue();
-				int quantityRequired=0;
-				while(changeBal>0&&changeBal>=value&&quantity>0){
-					changeBal-=value;
-					quantityRequired++;
-					quantity--;
-				}
-				mainCtrl.getMachineryController().giveChange(i,quantityRequired);
-			}
-			getMediator().getTransactionController().getCustomerPanel().setChange(changeRequired-changeBal);
-			if(changeBal>0)
-				getMediator().getTransactionController().getCustomerPanel().displayChangeStatus(true);
+            int changeBal=changeRequired;
+            MainController mainCtrl=getMediator().getTxCtrl().getMainController();
+            StoreController storeCtrl=mainCtrl.getStoreController();
+            int cashStoreSize=storeCtrl.getStoreSize(Store.CASH); 
+            for(int i=cashStoreSize-1;i>=0;i--){
+    		StoreItem cashStoreItem=storeCtrl.getStore(Store.CASH).getStoreItem(i);
+    		int quantity=cashStoreItem.getQuantity();
+    		Coin coin=(Coin)cashStoreItem.getContent();
+		int value=coin.getValue();
+		int quantityRequired=0;
+		while(changeBal>0&&changeBal>=value&&quantity>0){
+                    changeBal-=value;
+                    quantityRequired++;
+                    quantity--;
 		}
-		catch(VMCSException ex){
-                    getMediator().terminatePayment();
-//			getMediator().getTransactionController().terminateFault();
-			return false;
-		}
-		return true;
+		mainCtrl.getMachineryController().giveChange(i,quantityRequired);
+            }
+            getMediator().getTxCtrl().getCustomerPanel().setChange(changeRequired-changeBal);
+            if(changeBal>0)
+		getMediator().getTxCtrl().getCustomerPanel().displayChangeStatus(true);
 	}
-
-    @Override
-    public void terminate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	catch(VMCSException ex){
+            getMediator().cancelPayment();
+//			getMediator().getTransactionController().terminateFault();
+            return false;
+	}
+	return true;
     }
 }

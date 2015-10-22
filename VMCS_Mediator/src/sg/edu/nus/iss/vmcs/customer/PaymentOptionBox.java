@@ -15,15 +15,15 @@ import java.awt.Panel;
 public class PaymentOptionBox extends Panel{
     private PaymentOptionButton card;
     private PaymentOptionButton coin;
-    private PaymentMediator mediator;
+    private TransactionController txCtrl;
     
-    public PaymentOptionBox(PaymentMediator m){
-        this.mediator = m;
-        card = new PaymentOptionButton("Pay by Card",PaymentMediator.PAYMENT_BY_CARD);
-        coin = new PaymentOptionButton("Pay by Coin",PaymentMediator.PAYMENT_BY_COIN);
+    public PaymentOptionBox(TransactionController t){
+        this.txCtrl = t;
+        card = new PaymentOptionButton("Pay by Card",MediatorFactory.PAYMENT_BY_CARD);
+        coin = new PaymentOptionButton("Pay by Coin",MediatorFactory.PAYMENT_BY_COIN);
         
-        card.addActionListener(new PaymentOptionListener(this.mediator));
-        coin.addActionListener(new PaymentOptionListener(this.mediator));
+        card.addActionListener(new PaymentOptionListener(this.txCtrl));
+        coin.addActionListener(new PaymentOptionListener(this.txCtrl));
         
         setLayout(new FlowLayout());
         add(card);

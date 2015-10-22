@@ -13,30 +13,29 @@ import sg.edu.nus.iss.vmcs.store.StoreObject;
  */
 public abstract class PaymentColleague {
     private PaymentMediator mediator;
-    private int total;
     
     public PaymentColleague(PaymentMediator m){
         this.mediator = m;
     }
-    
-/**    
-*    once choose payment option
-*    resetPayment
-*    prepare ui
-*/
-    public abstract void start();
-
-//        coinreceiver receive coin
-//        cardreader read card        
-    public abstract void process(StoreObject s);
-    
-    public abstract void complete();
-    
-//        clear private variables
-//        reset ui
+//    
+///**    
+//*    once choose payment option
+//*    resetPayment
+//*    prepare ui
+//*/
+//    public abstract void start();
+//
+////        coinreceiver receive coin
+////        cardreader read card        
+//    public abstract void process(StoreObject s);
+//    
+//    public abstract void complete(int total);
+//    
+////        clear private variables
+////        reset ui
     public abstract void reset();
-    
-    public abstract void terminate();
+//    
+//    public abstract void terminate();
     
     public void setMediator(PaymentMediator m){
         this.mediator = m;
@@ -46,11 +45,5 @@ public abstract class PaymentColleague {
         return this.mediator;
     }
     
-    public void setTotal(int t){
-        this.total = t;
-    }
     
-    public int getTotal(){
-        return this.total;
-    }
 }

@@ -13,16 +13,19 @@ import java.awt.event.ActionListener;
  * @author xiejiabao
  */
 public class PaymentOptionListener implements ActionListener{
-    private PaymentMediator mediator;
+    private TransactionController txCtrl;
 
-    public PaymentOptionListener(PaymentMediator m){
-        this.mediator = m;
+    public PaymentOptionListener(TransactionController t){
+        this.txCtrl = t;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         PaymentOptionButton option = (PaymentOptionButton)e.getSource();
-        this.mediator.startPayment(option.getPaymentOption());
+        PaymentMediator mediator = MediatorFactory.getMediator(option.getPaymentOption());
+        mediator.setTxCtrl(this.txCtrl);
+        txCtrl.startPayment(mediator);
+//        this.mediator.startPayment(option.getPaymentOption());
     }
     
 }
