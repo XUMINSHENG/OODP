@@ -96,6 +96,7 @@ public class CustomerPanel extends Dialog {
     private Button btnTerminate=new Button("Terminate and Return Cash");
     private LabelledValue lbdCollectCoins=new LabelledValue("Collect Coins:","0 C",50);
     private LabelledValue lbdCollectCan=new LabelledValue("Collect Can Here:","",100);
+    private PaymentOptionBox paymentOptionBox;
     
     /**
      * This constructor creates an instance of the Customer Panel&#46; It further
@@ -119,10 +120,12 @@ public class CustomerPanel extends Dialog {
 			}
 		});
 		
+                paymentOptionBox = new PaymentOptionBox(txCtrl.getMediator());
 		coinInputBox=new CoinInputBox(txCtrl);
 		drinkSelectionBox=new DrinkSelectionBox(txCtrl);
 		TerminateButtonListener terminateButtonListener=new TerminateButtonListener(txCtrl);
 		
+                paymentOptionBox.setActive(false);
 		coinInputBox.setActive(false);
 		drinkSelectionBox.setActive(true);
 		
