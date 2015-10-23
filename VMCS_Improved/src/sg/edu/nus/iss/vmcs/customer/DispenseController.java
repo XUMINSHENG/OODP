@@ -7,10 +7,14 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import java.util.Observable;
+import java.util.Observer;
 import sg.edu.nus.iss.vmcs.store.DrinksBrand;
+import sg.edu.nus.iss.vmcs.store.DrinksStoreItem;
 import sg.edu.nus.iss.vmcs.store.Store;
 import sg.edu.nus.iss.vmcs.store.StoreController;
 import sg.edu.nus.iss.vmcs.store.StoreItem;
+import sg.edu.nus.iss.vmcs.store.StoreItemChangeManager;
 import sg.edu.nus.iss.vmcs.store.StoreObject;
 import sg.edu.nus.iss.vmcs.system.MainController;
 import sg.edu.nus.iss.vmcs.util.VMCSException;
@@ -20,7 +24,7 @@ import sg.edu.nus.iss.vmcs.util.VMCSException;
  * @author Team SE16T5E
  * @version 1.0 2008-10-01
  */
-public class DispenseController {
+public class DispenseController implements Observer{
     private TransactionController txCtrl;
     private int selection=0;
 	
@@ -30,6 +34,13 @@ public class DispenseController {
      */
     public DispenseController(TransactionController txCtrl){
     	this.txCtrl=txCtrl;
+        this.establishObservation();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        this.closeDownObservation();
+        super.finalize(); 
     }
     
     /**
@@ -107,18 +118,30 @@ public class DispenseController {
 	 */
 	public boolean dispenseDrink(int selectedBrand){
 		try{
+// +++ apply observer pattern XuMS 2015/10/09
+                        // set selected drink index
+                        updateDrinkSelection(selectedBrand);
+// --- apply observer pattern XuMS 2015/10/09
+                        
 			txCtrl.getMainController().getMachineryController().dispenseDrink(selectedBrand);
-			MainController mainCtrl=txCtrl.getMainController();
+			
+                        MainController mainCtrl=txCtrl.getMainController();
 			StoreController storeCtrl=mainCtrl.getStoreController();
 			StoreItem drinkStoreItem=storeCtrl.getStore(Store.DRINK).getStoreItem(selectedBrand);
 			StoreObject storeObject=drinkStoreItem.getContent();
 			DrinksBrand drinksBrand=(DrinksBrand)storeObject;
 			String drinksName=drinksBrand.getName();
-			int price=drinksBrand.getPrice();
-			int quantity=drinkStoreItem.getQuantity();
+// +++ apply observer pattern XuMS 2015/10/09                                
+//			int price=drinksBrand.getPrice();
+//			int quantity=drinkStoreItem.getQuantity();
+// --- apply observer pattern XuMS 2015/10/09
+                        
 			txCtrl.getCustomerPanel().setCan(drinksName);
-			updateDrinkSelection(selectedBrand);
-			txCtrl.getCustomerPanel().getDrinkSelectionBox().update(selectedBrand, quantity, price, drinksName);
+			
+// +++ apply observer pattern XuMS 2015/10/09            
+//                        updateDrinkSelection(selectedBrand);
+//			txCtrl.getCustomerPanel().getDrinkSelectionBox().update(selectedBrand, quantity, price, drinksName);
+// --- apply observer pattern XuMS 2015/10/09
 		}
 		catch(VMCSException ex){
 			txCtrl.terminateFault();
@@ -126,4 +149,41 @@ public class DispenseController {
 		}
 		return true;
 	}
+
+// +++ apply observer pattern XuMS 2015/10/09
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof DrinksStoreItem){
+            
+            StoreItem drinkStoreItem=(StoreItem)o;
+            StoreObject storeObject=drinkStoreItem.getContent();
+            DrinksBrand drinksBrand=(DrinksBrand)storeObject;
+            String drinksName=drinksBrand.getName();
+            int price=drinksBrand.getPrice();
+            int quantity=drinkStoreItem.getQuantity();
+            txCtrl.getCustomerPanel().getDrinkSelectionBox().
+                    update(this.selection, quantity, price, drinksName);
+        }
+        
+    }
+    
+    private void establishObservation(){
+
+        StoreItem[] storeItems = txCtrl.getMainController().getStoreController().getStoreItems(Store.DRINK);
+        for (StoreItem item : storeItems) {
+            StoreItemChangeManager.getInstance().register(item, this);
+        }
+                
+    }
+    
+    private void closeDownObservation(){
+        
+        StoreItem[] storeItems = txCtrl.getMainController().getStoreController().getStoreItems(Store.DRINK);
+        for (StoreItem item : storeItems) {
+            StoreItemChangeManager.getInstance().unregister(item, this);
+        }
+
+    }    
+// --- apply observer pattern XuMS 2015/10/09
+    
 }//End of class DispenseController

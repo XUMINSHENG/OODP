@@ -7,6 +7,9 @@
  */
 package sg.edu.nus.iss.vmcs.store;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * This entity object implements a generic storage item class&#46; It performs actions like;
  * returning content (Store Item identification), setting quantity, returning quantity,
@@ -25,7 +28,7 @@ package sg.edu.nus.iss.vmcs.store;
  * @version 3.0 5/07/2003
  * @author Olivo Miotto, Pang Ping Li
  */
-public class StoreItem {
+public class StoreItem extends Observable{
 	private StoreObject content;
 	private int quantity;
 
@@ -53,6 +56,7 @@ public class StoreItem {
 	 */
 	public void setContent(StoreObject ct) {
 		content = ct;
+                
 	}
 
 	/**
@@ -61,6 +65,11 @@ public class StoreItem {
 	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+
+// +++ apply observer pattern XuMS 2015/10/09
+                this.setChanged();
+                this.notifyObservers(null);
+// --- apply observer pattern XuMS 2015/10/09
 	}
 
 	/**
@@ -85,6 +94,11 @@ public class StoreItem {
 		quantity--;
 		if (quantity < 0)
 			quantity = 0;
+
+// +++ apply observer pattern XuMS 2015/10/09
+                this.setChanged();
+                this.notifyObservers(null);
+// --- apply observer pattern XuMS 2015/10/09
 	}
 
 	/**
@@ -92,5 +106,29 @@ public class StoreItem {
 	 */
 	public void increment() {
 		quantity++;
+
+// +++ apply observer pattern XuMS 2015/10/09
+                this.setChanged();
+                this.notifyObservers(null);
+// --- apply observer pattern XuMS 2015/10/09
 	}
+
+    
+// +++ apply observer pattern XuMS 2015/10/09
+    @Override
+    public synchronized void addObserver(Observer o) {
+        StoreItemChangeManager.getInstance().register(this, o);
+    }
+
+    @Override
+    public synchronized void deleteObserver(Observer o) {
+        StoreItemChangeManager.getInstance().unregister(this, o);
+    }
+    
+    @Override
+    public void notifyObservers(Object arg) {
+        StoreItemChangeManager.getInstance().notifyObservers(this,arg);
+    } 
+// --- apply observer pattern XuMS 2015/10/09
+        
 }//End of class StoreItem

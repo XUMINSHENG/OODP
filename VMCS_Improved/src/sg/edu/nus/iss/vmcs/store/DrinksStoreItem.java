@@ -36,4 +36,11 @@ public class DrinksStoreItem extends StoreItem {
 	public DrinksStoreItem(DrinksBrand ob, int qty) {
 		super((StoreObject) ob, qty);
 	}
+
+    @Override
+    public void notifyObservers(Object arg) {
+        super.notifyObservers("Drinks"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+        
 }//End of class DrinksStoreItem
