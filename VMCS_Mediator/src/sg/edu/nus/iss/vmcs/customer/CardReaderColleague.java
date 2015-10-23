@@ -37,7 +37,7 @@ public class CardReaderColleague extends PaymentColleague{
 
     @Override
     public void reset() {
-        this.card = new Card();
+        this.card = null;
     }
 
 //    @Override

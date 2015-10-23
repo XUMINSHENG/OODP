@@ -16,6 +16,11 @@ public class CardMediator extends PaymentMediator{
     private TransactionController txCtrl;
     private CardReaderColleague cardReader;
     
+    public CardMediator(){
+//        this.txCtrl = t;
+        cardReader = new CardReaderColleague(this);
+    }
+    
     @Override
     public void startPayment() {
         resetPayment();
