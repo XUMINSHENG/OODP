@@ -52,14 +52,12 @@ public class IdleState implements TransactionControllerState{
 
     @Override
     public void processMoneyReceived(int total) {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!");
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
     }
 
     @Override
     public void completeTransaction() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!"); 
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!"); 
     }
 
     @Override
@@ -85,14 +83,12 @@ public class IdleState implements TransactionControllerState{
 
     @Override
     public void endMaintenance() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!");
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
     }
 
     @Override
     public void terminateFault() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!");
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
     }
     
 }

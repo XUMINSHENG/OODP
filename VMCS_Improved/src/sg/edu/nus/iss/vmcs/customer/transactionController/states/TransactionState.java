@@ -41,8 +41,7 @@ public class TransactionState implements TransactionControllerState{
     
     @Override
     public void startTransaction(int drinkIdentifier) {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!"); 
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!"); 
     }
 
     @Override
@@ -109,14 +108,12 @@ public class TransactionState implements TransactionControllerState{
 
     @Override
     public void endMaintenance() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!");
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Wrong State!");
     }
 
     @Override
     public void terminateFault() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!"); 
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Wrong State!"); 
     }
     
 }

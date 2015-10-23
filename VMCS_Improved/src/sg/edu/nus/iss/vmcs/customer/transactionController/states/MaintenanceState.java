@@ -25,32 +25,27 @@ public class MaintenanceState implements TransactionControllerState{
     
     @Override
     public void startTransaction(int drinkIdentifier) {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!"); 
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!"); 
     }
 
     @Override
     public void processMoneyReceived(int total) {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!"); 
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!"); 
     }
 
     @Override
     public void completeTransaction() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!");
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
     }
 
     @Override
     public void cancelTransaction() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!");
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
     }
 
     @Override
     public void startMaintenance() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!");
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
     }
 
     @Override
@@ -67,8 +62,7 @@ public class MaintenanceState implements TransactionControllerState{
 
     @Override
     public void terminateFault() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null,"Wrong State!"); 
-        txCtrl.terminateFault();
+        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!"); 
     }
     
 }
