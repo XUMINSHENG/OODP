@@ -41,7 +41,7 @@ public class ChangeGiverColleague extends PaymentColleague{
 
     @Override
     public void reset() {
-        
+        displayChangeStatus();
     }
     
     public void displayChangeStatus(){
