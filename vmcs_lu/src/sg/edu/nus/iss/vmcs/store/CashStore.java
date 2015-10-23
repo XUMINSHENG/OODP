@@ -59,6 +59,7 @@ public class CashStore extends Store {
 	}
 
 	public CashStoreItem getHighestValueCashStoreItem() {
+
 		return highestValueCashStoreItem;
 	}
 

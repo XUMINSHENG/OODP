@@ -6,7 +6,8 @@
  */
 package sg.edu.nus.iss.vmcs.store;
 
-import sg.edu.nus.iss.vmcs.customer.TransactionController;
+import java.util.HashMap;
+
 import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**
@@ -73,7 +74,7 @@ public class CashStoreItem extends StoreItem {
 		return nextCashStoreItem;
 	}
 
-	public int handleChange(int changeBal, TransactionController txCtrl) throws VMCSException {
+	public int handleChange(int changeBal, HashMap<CashStoreItem, Integer> itemQuantityRequired) throws VMCSException {
 		int quantity = this.getQuantity();
 		Coin coin = (Coin) this.getContent();
 		int value = coin.getValue();
@@ -83,12 +84,12 @@ public class CashStoreItem extends StoreItem {
 			quantityRequired++;
 			quantity--;
 		}
-		txCtrl.getMainController().getMachineryController().giveChange(this, quantityRequired);
+		itemQuantityRequired.put(this, quantityRequired);
 		if (changeBal == 0) {
 			return changeBal;
 		} else {
 			if (this.getNextCashStoreItem() != null) {
-				changeBal = this.getNextCashStoreItem().handleChange(changeBal, txCtrl);
+				changeBal = this.getNextCashStoreItem().handleChange(changeBal, itemQuantityRequired);
 			}
 			return changeBal;
 		}

@@ -7,8 +7,13 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+
 import sg.edu.nus.iss.vmcs.store.CashStore;
 import sg.edu.nus.iss.vmcs.store.CashStoreItem;
+import sg.edu.nus.iss.vmcs.store.Coin;
 import sg.edu.nus.iss.vmcs.store.Store;
 import sg.edu.nus.iss.vmcs.store.StoreController;
 import sg.edu.nus.iss.vmcs.store.StoreItem;
@@ -95,16 +100,21 @@ public class ChangeGiver {
 			StoreController storeCtrl = mainCtrl.getStoreController();
 			int cashStoreSize = storeCtrl.getStoreSize(Store.CASH);
 			System.out.println("cashStoreSize*****" + cashStoreSize);
-			// for (int j = cashStoreSize - 1; j >= 0; j--) { // set chain
-			// ((CashStoreItem) storeCtrl.getStore(Store.CASH).getStoreItem(j))
-			// .setNextCashStoreItem((CashStoreItem)
-			// storeCtrl.getStore(Store.CASH).getStoreItem(j - 1));
-			// }
-			// int i = cashStoreSize - 1;
+			// get the head of chain
 			CashStoreItem cashStoreItem = ((CashStore) storeCtrl.getStore(Store.CASH)).getHighestValueCashStoreItem();
-			changeBal = cashStoreItem.handleChange(changeBal, txCtrl);// chain
-																		// gets
-																		// started
+			// Create a hashMap for collecting the required quantity for each
+			// CashStoreItem
+			HashMap<CashStoreItem, Integer> itemQuantityRequired = new HashMap<CashStoreItem, Integer>();
+			// chain gets started
+			changeBal = cashStoreItem.handleChange(changeBal, itemQuantityRequired);
+			// give change
+			Iterator<Entry<CashStoreItem, Integer>> iterator = itemQuantityRequired.entrySet().iterator();
+			while (iterator.hasNext()) {
+				HashMap.Entry<CashStoreItem, Integer> item = (HashMap.Entry<CashStoreItem, Integer>) iterator.next();
+				System.out.println(
+						((Coin) item.getKey().getContent()).getValue() + "*****keyValue*******" + item.getValue());
+				txCtrl.getMainController().getMachineryController().giveChange(item.getKey(), item.getValue());
+			}
 			System.out.println("changeBal***********" + changeBal);
 			txCtrl.getCustomerPanel().setChange(changeRequired - changeBal);
 			if (changeBal > 0)

@@ -8,6 +8,8 @@
 package sg.edu.nus.iss.vmcs.store;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import sg.edu.nus.iss.vmcs.system.CashPropertyLoader;
 
@@ -107,11 +109,35 @@ public class StoreController {
 		// get the cash file from the environment property file;
 		int numOfItems = cashLoader.getNumOfItems();
 		cStore.setStoreSize(numOfItems);
-		cStore.setHighestValueCashStoreItem(cashLoader.getHighestValueCashStoreItem());
 
 		for (int i = 0; i < numOfItems; i++) {
 			CashStoreItem item = (CashStoreItem) cashLoader.getItem(i);
 			cStore.addItem(i, item);
+		}
+		int cashStoreSize = cStore.getStoreSize();
+		// Create item list for setting up chain
+		List<CashStoreItem> CashItemArray = new ArrayList<CashStoreItem>();
+		for (int i = 0; i < cashStoreSize; i++) {
+			CashItemArray.add((CashStoreItem) cStore.getStoreItem(i));
+			System.out.println(((Coin) CashItemArray.get(i).getContent()).getValue());
+		}
+		CashStoreItem temp = null;
+		// Sort the list by coin value
+		for (int i = 0; i < CashItemArray.size() - 1; i++) {
+			for (int j = 0; j < CashItemArray.size() - 1 - i; j++) {
+				if (((Coin) CashItemArray.get(j).getContent())
+						.getValue() < ((Coin) CashItemArray.get(j + 1).getContent()).getValue()) {
+					temp = CashItemArray.get(j);
+					CashItemArray.set(j, CashItemArray.get(j + 1));
+					CashItemArray.set(j + 1, temp);
+				}
+			}
+		}
+		// set the head of chain
+		cStore.setHighestValueCashStoreItem(CashItemArray.get(0));
+		// set up the chain
+		for (int j = 0; j < CashItemArray.size() - 1; j++) {
+			CashItemArray.get(j).setNextCashStoreItem(CashItemArray.get(j + 1));
 		}
 	}
 
