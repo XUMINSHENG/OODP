@@ -9,6 +9,8 @@ package sg.edu.nus.iss.vmcs.store;
 
 import java.io.IOException;
 
+import sg.edu.nus.iss.vmcs.system.CashPropertyLoader;
+
 /**
  * This control object manages changes in CashStore attributes and the
  * DrinksStore attributes.
@@ -30,7 +32,7 @@ public class StoreController {
 	private CashStore cStore;
 	private DrinksStore dStore;
 
-	private PropertyLoader cashLoader;
+	private CashPropertyLoader cashLoader;
 	private PropertyLoader drinksLoader;
 
 	/**
@@ -41,7 +43,7 @@ public class StoreController {
 	 * @param drinksLoader
 	 *            the drinks loader.
 	 */
-	public StoreController(PropertyLoader cashLoader, PropertyLoader drinksLoader) {
+	public StoreController(CashPropertyLoader cashLoader, PropertyLoader drinksLoader) {
 		this.cashLoader = cashLoader;
 		this.drinksLoader = drinksLoader;
 	}
@@ -105,6 +107,7 @@ public class StoreController {
 		// get the cash file from the environment property file;
 		int numOfItems = cashLoader.getNumOfItems();
 		cStore.setStoreSize(numOfItems);
+		cStore.setHighestValueCashStoreItem(cashLoader.getHighestValueCashStoreItem());
 
 		for (int i = 0; i < numOfItems; i++) {
 			CashStoreItem item = (CashStoreItem) cashLoader.getItem(i);
@@ -353,9 +356,13 @@ public class StoreController {
 	 * @param numOfCoins
 	 *            the number of Coin to deduct&#46;
 	 */
-	public void giveChange(int idx, int numOfCoins) {
-		CashStoreItem item;
-		item = (CashStoreItem) getStoreItem(Store.CASH, idx);
+	// public void giveChange(int idx, int numOfCoins) {
+	// CashStoreItem item;
+	// item = (CashStoreItem) getStoreItem(Store.CASH, idx);
+	// for (int i = 0; i < numOfCoins; i++)
+	// item.decrement();
+	// }
+	public void giveChange(CashStoreItem item, int numOfCoins) {
 		for (int i = 0; i < numOfCoins; i++)
 			item.decrement();
 	}

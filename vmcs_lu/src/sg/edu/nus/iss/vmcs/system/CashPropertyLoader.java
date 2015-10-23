@@ -7,6 +7,12 @@
  */
 package sg.edu.nus.iss.vmcs.system;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
 import sg.edu.nus.iss.vmcs.store.CashStoreItem;
 import sg.edu.nus.iss.vmcs.store.Coin;
 import sg.edu.nus.iss.vmcs.store.StoreItem;
@@ -23,6 +29,12 @@ public class CashPropertyLoader extends FilePropertyLoader {
 	private static final String WEIGHT_LABEL = "Weight";
 	private static final String VALUE_LABEL = "Value";
 	private static final String QUANTITY_LABEL = "Quantity";
+
+	private CashStoreItem highestValueCashStoreItem;
+
+	public void setHighestValueCashStoreItem(CashStoreItem highestValueCashStoreItem) {
+		this.highestValueCashStoreItem = highestValueCashStoreItem;
+	}
 
 	/**
 	 * This constructor creates an instance of CashPropertyLoader object.
@@ -91,5 +103,51 @@ public class CashPropertyLoader extends FilePropertyLoader {
 
 		itn = new String(QUANTITY_LABEL + idx);
 		setValue(itn, String.valueOf(item.getQuantity()));
+	}
+
+	/**
+	 * This method reads the properties file into a hash table.
+	 * 
+	 * @throws IOException
+	 *             if fail to load properties from properties file.
+	 */
+	public void initialize() throws IOException {
+		prop = new Properties(System.getProperties());
+		FileInputStream stream = new FileInputStream(fileName);
+		prop.load(stream);
+		stream.close();
+		// int cashStoreSize = storeCtrl.getStoreSize(Store.CASH);
+		int cashStoreSize = this.getNumOfItems();
+		System.out.println(cashStoreSize);
+		List<CashStoreItem> CashItemArray = new ArrayList<CashStoreItem>();
+		// CashItemArray.set(0, (CashStoreItem) this.getItem(0));
+		for (int i = 0; i < cashStoreSize; i++) {
+			CashItemArray.add((CashStoreItem) this.getItem(i));
+			System.out.println(((Coin) CashItemArray.get(i).getContent()).getValue());
+		}
+		CashStoreItem temp = null;
+		for (int i = 0; i < CashItemArray.size() - 1; i++) {
+			for (int j = 0; j < CashItemArray.size() - 1 - i; j++) {
+				if (((Coin) CashItemArray.get(j).getContent())
+						.getValue() < ((Coin) CashItemArray.get(j + 1).getContent()).getValue()) {
+					temp = CashItemArray.get(j);
+					CashItemArray.set(j, CashItemArray.get(j + 1));
+					CashItemArray.set(j + 1, temp);
+				}
+			}
+		}
+		this.setHighestValueCashStoreItem(CashItemArray.get(0));
+		for (int j = 0; j < CashItemArray.size() - 1; j++) {
+			CashItemArray.get(j).setNextCashStoreItem(CashItemArray.get(j + 1));
+		}
+		// for (int j = cashStoreSize - 1; j >= 0; j--) { // set chain
+		// ((CashStoreItem) storeCtrl.getStore(Store.CASH).getStoreItem(j))
+		// .setNextCashStoreItem((CashStoreItem)
+		// storeCtrl.getStore(Store.CASH).getStoreItem(j - 1));
+		// }
+	}
+
+	public CashStoreItem getHighestValueCashStoreItem() {
+		return this.highestValueCashStoreItem;
 	}
 }// End of class CashPropertyLoader

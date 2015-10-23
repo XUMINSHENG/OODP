@@ -10,7 +10,6 @@ package sg.edu.nus.iss.vmcs.system;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 /*
  * Copyright 2003 ISS.
  * The contents contained in this document may not be reproduced in any
@@ -34,8 +33,8 @@ import sg.edu.nus.iss.vmcs.store.StoreItem;
 public abstract class FilePropertyLoader implements PropertyLoader {
 	private static final String PROP_NUM_ITEMS = "NumOfItems";
 
-	private Properties prop;
-	private String fileName;
+	protected Properties prop;
+	protected String fileName;
 
 	/**
 	 * This constructor creates an instance of the FilePropertyLoader object.

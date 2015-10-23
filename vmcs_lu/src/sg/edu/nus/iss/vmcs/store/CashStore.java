@@ -26,6 +26,11 @@ package sg.edu.nus.iss.vmcs.store;
 public class CashStore extends Store {
 	/** This is the constant for coin invalid weight. */
 	public final static int INVALID_COIN_WEIGHT = 9999;
+	private CashStoreItem highestValueCashStoreItem;
+
+	public void setHighestValueCashStoreItem(CashStoreItem highestValueCashStoreItem) {
+		this.highestValueCashStoreItem = highestValueCashStoreItem;
+	}
 
 	/**
 	 * This constructor creates an instance of the CashStore object.
@@ -51,6 +56,10 @@ public class CashStore extends Store {
 				return i;
 		}
 		return -1;
+	}
+
+	public CashStoreItem getHighestValueCashStoreItem() {
+		return highestValueCashStoreItem;
 	}
 
 	/**

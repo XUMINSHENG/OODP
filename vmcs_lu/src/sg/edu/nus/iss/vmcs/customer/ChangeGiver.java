@@ -7,6 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import sg.edu.nus.iss.vmcs.store.CashStore;
 import sg.edu.nus.iss.vmcs.store.CashStoreItem;
 import sg.edu.nus.iss.vmcs.store.Store;
 import sg.edu.nus.iss.vmcs.store.StoreController;
@@ -94,14 +95,16 @@ public class ChangeGiver {
 			StoreController storeCtrl = mainCtrl.getStoreController();
 			int cashStoreSize = storeCtrl.getStoreSize(Store.CASH);
 			System.out.println("cashStoreSize*****" + cashStoreSize);
-			for (int j = cashStoreSize - 1; j >= 0; j--) { // set chain
-				((CashStoreItem) storeCtrl.getStore(Store.CASH).getStoreItem(j))
-						.setNextCashStoreItem((CashStoreItem) storeCtrl.getStore(Store.CASH).getStoreItem(j - 1));
-				((CashStoreItem) storeCtrl.getStore(Store.CASH).getStoreItem(j)).setIndex(j);
-			}
-			int i = cashStoreSize - 1;
-			CashStoreItem cashStoreItem = (CashStoreItem) storeCtrl.getStore(Store.CASH).getStoreItem(i);
-			changeBal = cashStoreItem.handleChange(changeBal, storeCtrl, txCtrl);//chain gets started
+			// for (int j = cashStoreSize - 1; j >= 0; j--) { // set chain
+			// ((CashStoreItem) storeCtrl.getStore(Store.CASH).getStoreItem(j))
+			// .setNextCashStoreItem((CashStoreItem)
+			// storeCtrl.getStore(Store.CASH).getStoreItem(j - 1));
+			// }
+			// int i = cashStoreSize - 1;
+			CashStoreItem cashStoreItem = ((CashStore) storeCtrl.getStore(Store.CASH)).getHighestValueCashStoreItem();
+			changeBal = cashStoreItem.handleChange(changeBal, txCtrl);// chain
+																		// gets
+																		// started
 			System.out.println("changeBal***********" + changeBal);
 			txCtrl.getCustomerPanel().setChange(changeRequired - changeBal);
 			if (changeBal > 0)

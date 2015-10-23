@@ -7,6 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.machinery;
 
+import sg.edu.nus.iss.vmcs.store.CashStoreItem;
 import sg.edu.nus.iss.vmcs.store.Coin;
 import sg.edu.nus.iss.vmcs.store.StoreController;
 import sg.edu.nus.iss.vmcs.system.MainController;
@@ -222,8 +223,13 @@ public class MachineryController {
 	 * @throws VMCSException
 	 *             if fail to update cash store display.
 	 */
-	public void giveChange(int idx, int numOfCoins) throws VMCSException {
-		storeCtrl.giveChange(idx, numOfCoins);
+	// public void giveChange(int idx, int numOfCoins) throws VMCSException {
+	// storeCtrl.giveChange(idx, numOfCoins);
+	// if (ml != null)
+	// ml.getCashStoreDisplay().update();
+	// }
+	public void giveChange(CashStoreItem item, int numOfCoins) throws VMCSException {
+		storeCtrl.giveChange(item, numOfCoins);
 		if (ml != null)
 			ml.getCashStoreDisplay().update();
 	}
