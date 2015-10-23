@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class CoinMediator extends PaymentMediator{
 
-    private TransactionController txCtrl;
     private CoinReceiverColleague coinReceiver;
     private ChangeGiverColleague changeGiver;
     
@@ -25,7 +24,7 @@ public class CoinMediator extends PaymentMediator{
     @Override
     public void startPayment() {
         resetPayment();
-        txCtrl.getCustomerPanel().setCoinInputBoxActive(true);
+        getTxCtrl().getCustomerPanel().setCoinInputBoxActive(true);
     }
 
     @Override
@@ -35,16 +34,16 @@ public class CoinMediator extends PaymentMediator{
     
     @Override
     public void processPayment(int total) {
-        txCtrl.getCustomerPanel().setCoinInputBoxActive(false);
-        txCtrl.getCustomerPanel().displayInvalidCoin(false);
-        txCtrl.getCustomerPanel().setTotalMoneyInserted(total);
-        txCtrl.getCustomerPanel().setChange("");
-        txCtrl.processMoneyReceived(total);
+        getTxCtrl().getCustomerPanel().setCoinInputBoxActive(false);
+        getTxCtrl().getCustomerPanel().displayInvalidCoin(false);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(total);
+        getTxCtrl().getCustomerPanel().setChange("");
+        getTxCtrl().processMoneyReceived(total);
     }
 
     @Override
     public void continuePayment() {
-        txCtrl.getCustomerPanel().setCoinInputBoxActive(true);
+        getTxCtrl().getCustomerPanel().setCoinInputBoxActive(true);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class CoinMediator extends PaymentMediator{
         if(total>0){
             changeGiver.giveChange(total);
         }else{
-            txCtrl.getCustomerPanel().setChange(0);
+            getTxCtrl().getCustomerPanel().setChange(0);
         }
         coinReceiver.storeCash();
     }
@@ -61,17 +60,7 @@ public class CoinMediator extends PaymentMediator{
     public void resetPayment() {
         coinReceiver.reset();
         changeGiver.reset();
-        txCtrl.getCustomerPanel().resetChange();
-    }
-    
-    @Override
-    public TransactionController getTxCtrl() {
-        return txCtrl;
-    }
-
-    @Override
-    public void setTxCtrl(TransactionController txCtrl) {
-        this.txCtrl = txCtrl;
+        getTxCtrl().getCustomerPanel().resetChange();
     }
 
     @Override

@@ -5,26 +5,23 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
-import sg.edu.nus.iss.vmcs.store.Card;
-
 /**
  *
  * @author xieqiang
  */
 public class CardMediator extends PaymentMediator{
     
-    private TransactionController txCtrl;
     private CardReaderColleague cardReader;
     
     public CardMediator(){
-//        this.txCtrl = t;
+//        this.getTxCtrl() = t;
         cardReader = new CardReaderColleague(this);
     }
     
     @Override
     public void startPayment() {
         resetPayment();
-        txCtrl.getCustomerPanel().setCardInsertBoxActive(true);
+        getTxCtrl().getCustomerPanel().setCardInsertBoxActive(true);
     }
     
     @Override
@@ -34,18 +31,18 @@ public class CardMediator extends PaymentMediator{
 
     @Override
     public void processPayment(int total) {
-        txCtrl.getCustomerPanel().setCardInsertBoxActive(false);
-        txCtrl.getCustomerPanel().displayInvalidCard(false);
-        txCtrl.getCustomerPanel().setTotalMoneyInserted(total);
-        txCtrl.processMoneyReceived(total);
+        getTxCtrl().getCustomerPanel().setCardInsertBoxActive(false);
+        getTxCtrl().getCustomerPanel().displayInvalidCard(false);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(total);
+        getTxCtrl().processMoneyReceived(total);
     }
 
     @Override
     public void continuePayment() {
         invalidPayment("Not Enough Money inside Card");
-        txCtrl.getCustomerPanel().setCardInsertBoxActive(true);
-        txCtrl.getCustomerPanel().displayInvalidCard(true);
-        txCtrl.getCustomerPanel().setTotalMoneyInserted(0);
+        getTxCtrl().getCustomerPanel().setCardInsertBoxActive(true);
+        getTxCtrl().getCustomerPanel().displayInvalidCard(true);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
         cardReader.reset();
     }
 
@@ -58,22 +55,12 @@ public class CardMediator extends PaymentMediator{
     public void resetPayment() {
         cardReader.reset();
     }
-    
-    @Override
-    public TransactionController getTxCtrl() {
-        return txCtrl;
-    }
-
-    @Override
-    public void setTxCtrl(TransactionController txCtrl) {
-        this.txCtrl = txCtrl;
-    }
 
     @Override
     public void cancelPayment() {
-        txCtrl.getCustomerPanel().setCardInsertBoxActive(false);
-        txCtrl.getCustomerPanel().displayInvalidCard(false);
-        txCtrl.getCustomerPanel().setTotalMoneyInserted(0);
+        getTxCtrl().getCustomerPanel().setCardInsertBoxActive(false);
+        getTxCtrl().getCustomerPanel().displayInvalidCard(false);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
         cardReader.reset();
     }
 
