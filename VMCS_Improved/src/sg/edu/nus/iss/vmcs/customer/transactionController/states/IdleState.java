@@ -5,8 +5,6 @@
  */
 package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import sg.edu.nus.iss.vmcs.customer.ChangeGiver;
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
 import sg.edu.nus.iss.vmcs.customer.DispenseController;
@@ -52,12 +50,12 @@ public class IdleState implements TransactionControllerState{
 
     @Override
     public void processMoneyReceived(int total) {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void completeTransaction() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!"); 
+       throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
@@ -83,12 +81,12 @@ public class IdleState implements TransactionControllerState{
 
     @Override
     public void endMaintenance() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void terminateFault() {
-        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
     
 }

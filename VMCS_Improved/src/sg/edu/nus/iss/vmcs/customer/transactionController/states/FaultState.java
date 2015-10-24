@@ -5,8 +5,6 @@
  */
 package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
 import sg.edu.nus.iss.vmcs.customer.CustomerPanel;
 import sg.edu.nus.iss.vmcs.customer.DispenseController;
@@ -37,32 +35,32 @@ public class FaultState implements TransactionControllerState{
 
     @Override
     public void startTransaction(int drinkIdentifier) {
-        Logger.getLogger(FaultState.class.getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void processMoneyReceived(int total) {
-        Logger.getLogger(FaultState.class.getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void completeTransaction() {
-        Logger.getLogger(FaultState.class.getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void cancelTransaction() {
-        Logger.getLogger(FaultState.class.getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void startMaintenance() {
-        Logger.getLogger(FaultState.class.getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void endMaintenance() {
-        Logger.getLogger(FaultState.class.getName()).log(Level.SEVERE,"Wrong State!");
+        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
