@@ -9,7 +9,6 @@ package sg.edu.nus.iss.vmcs.maintenance;
 
 import java.awt.Frame;
 
-import sg.edu.nus.iss.vmcs.customer.CustomerPanel;
 import sg.edu.nus.iss.vmcs.machinery.MachineryController;
 import sg.edu.nus.iss.vmcs.store.CashStoreItem;
 import sg.edu.nus.iss.vmcs.store.DrinksBrand;
@@ -99,7 +98,7 @@ public class MaintenanceController {
 			MachineryController machctrl = mCtrl.getMachineryController();
 			machctrl.setDoorState(false);
 			//Terminate customer transaction
-			mCtrl.getTransactionController().terminateTransaction();
+                        mCtrl.getTransactionController().startMaintenance();
 		}
 	}
 
@@ -176,8 +175,12 @@ public class MaintenanceController {
 		try {
 			cc = sctrl.transferAll();
 			mpanel.displayCoins(cc);
-			machctrl.displayCoinStock();
-			// the cash qty current is displayed in the Maintenance panel needs to be update to be 0;
+			
+// +++ apply observer pattern XuMS 2015/10/09
+//                        machctrl.displayCoinStock();
+// --- apply observer pattern XuMS 2015/10/09
+
+                        // the cash qty current is displayed in the Maintenance panel needs to be update to be 0;
 			// not required.
 			mpanel.updateCurrentQtyDisplay(Store.CASH, 0);
 		} catch (VMCSException e) {
@@ -232,13 +235,7 @@ public class MaintenanceController {
 		mpanel.setActive(MaintenancePanel.DIALOG, true);
 		
 		//Refresh Customer Panel
-		CustomerPanel custPanel=mCtrl.getTransactionController().getCustomerPanel();
-		if(custPanel==null){
-			mCtrl.getSimulatorControlPanel().setActive(SimulatorControlPanel.ACT_CUSTOMER, true);
-		}
-		else{
-			mCtrl.getTransactionController().refreshCustomerPanel();
-		}
+		mCtrl.getTransactionController().endMaintenance();
 	}
 
 	/**

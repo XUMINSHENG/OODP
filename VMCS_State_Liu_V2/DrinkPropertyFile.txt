@@ -1,0 +1,21 @@
+#
+#Fri Oct 16 23:48:52 CST 2015
+Name6=Soya Bean
+Name5=Coca-Cola
+Name4=Soya Bean
+Name3=Sarsi
+Name2=Fanta
+Name1=Coca-Cola
+NumOfItems=6
+Quantity6=99
+Quantity5=99
+Quantity4=98
+Quantity3=99
+Quantity2=97
+Quantity1=98
+Price6=90
+Price5=100
+Price4=90
+Price3=60
+Price2=65
+Price1=100

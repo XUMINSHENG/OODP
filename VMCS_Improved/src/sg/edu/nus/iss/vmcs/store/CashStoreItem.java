@@ -37,4 +37,10 @@ public class CashStoreItem extends StoreItem {
 	public CashStoreItem(Coin coin, int qty) {
 		super((StoreObject) coin, qty);
 	}
+        
+        @Override
+        public void notifyObservers(Object arg) {
+            super.notifyObservers("Cash"); //To change body of generated methods, choose Tools | Templates.
+        }
+        
 }//End of class CashStoreItem
