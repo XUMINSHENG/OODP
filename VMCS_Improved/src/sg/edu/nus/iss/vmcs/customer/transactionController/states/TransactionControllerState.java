@@ -5,19 +5,41 @@
  */
 package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 
-import sg.edu.nus.iss.vmcs.customer.PaymentMediator;
-
 /**
  *
  * @author Liu Xinzhuo
  */
-public interface TransactionControllerState {
-    public void startTransaction(int drinkIdentifier);
-    public void startPayment();
-    public void processMoneyReceived(int total);
-    public void completeTransaction(int change);
-    public void cancelTransaction();
-    public void startMaintenance ();
-    public void endMaintenance();
-    public void terminateFault();
+public abstract class TransactionControllerState {
+    public void startTransaction(int drinkIdentifier)
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
+    public void startPayment()
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
+    public void processMoneyReceived(int total)
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
+    public void completeTransaction(int change)
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
+    public void cancelTransaction()
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
+    public void startMaintenance ()
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
+    public void endMaintenance()
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
+    public void terminateFault()
+    {
+        throw new UnsupportedOperationException("Wrong State!");
+    }
 }

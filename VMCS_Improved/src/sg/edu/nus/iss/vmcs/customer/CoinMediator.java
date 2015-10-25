@@ -53,14 +53,14 @@ public class CoinMediator extends PaymentMediator{
     public void completePayment(int total) {
         if(total>0){
             if(!changeGiver.giveChange(total)){
-                getTxCtrl().setState(new FaultState());
+                getTxCtrl().setState(new FaultState(getTxCtrl()));
                 getTxCtrl().terminateFault();
             };
         }else{
             getTxCtrl().getCustomerPanel().setChange(0);
         }
         if(!coinReceiver.storeCash()){
-            getTxCtrl().setState(new FaultState());
+            getTxCtrl().setState(new FaultState(getTxCtrl()));
             getTxCtrl().terminateFault();
         }
     }

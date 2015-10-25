@@ -13,7 +13,7 @@ import sg.edu.nus.iss.vmcs.system.SimulatorControlPanel;
  *
  * @author Liu Xinzhuo
  */
-public class MaintenanceState implements TransactionControllerState{
+public class MaintenanceState extends TransactionControllerState{
     
     private final TransactionController txCtrl;
     
@@ -22,50 +22,14 @@ public class MaintenanceState implements TransactionControllerState{
     }
     
     @Override
-    public void startTransaction(int drinkIdentifier) {
-        throw new UnsupportedOperationException("Wrong State!");
-    }
-
-    @Override
-    public void processMoneyReceived(int total) {
-        throw new UnsupportedOperationException("Wrong State!");
-    }
-
-    @Override
-    public void completeTransaction(int change) {
-        throw new UnsupportedOperationException("Wrong State!");
-    }
-
-    @Override
-    public void cancelTransaction() {
-        throw new UnsupportedOperationException("Wrong State!");
-    }
-
-    @Override
-    public void startMaintenance() {
-        throw new UnsupportedOperationException("Wrong State!");
-    }
-
-    @Override
     public void endMaintenance() {
-                CustomerPanel custPanel=txCtrl.getCustomerPanel();
-		if(custPanel==null){
-			txCtrl.getMainController().getSimulatorControlPanel().setActive(SimulatorControlPanel.ACT_CUSTOMER, true);
-		}
-		else{
-			txCtrl.refreshCustomerPanel();
-		}
-                txCtrl.setState(new IdleState(txCtrl));
+        CustomerPanel custPanel=txCtrl.getCustomerPanel();
+	if(custPanel==null){
+            txCtrl.getMainController().getSimulatorControlPanel().setActive(SimulatorControlPanel.ACT_CUSTOMER, true);
+	}
+	else{
+            txCtrl.refreshCustomerPanel();
+	}
+        txCtrl.setState(new IdleState(txCtrl));
     }
-
-    @Override
-    public void terminateFault() {
-        throw new UnsupportedOperationException("Wrong State!");
-    }
-
-    @Override
-    public void startPayment() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
