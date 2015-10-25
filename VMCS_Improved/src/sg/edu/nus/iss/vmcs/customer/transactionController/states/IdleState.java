@@ -18,14 +18,13 @@ import sg.edu.nus.iss.vmcs.store.StoreItem;
  */
 public class IdleState extends TransactionControllerState{
 
-    private final TransactionController txCtrl;
     private StoreItem storeItem;
     private DrinksBrand drinksBrand;
     private final DispenseController dispenseCtrl;
     private PaymentMediator mediator;
     
     public IdleState(TransactionController txCtrl) {
-        this.txCtrl = txCtrl;
+        super(txCtrl);
         this.dispenseCtrl = txCtrl.getDispenseController();
     }
     

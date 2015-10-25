@@ -16,13 +16,12 @@ import sg.edu.nus.iss.vmcs.customer.TransactionController;
  */
 public class FaultState extends TransactionControllerState{
     
-    private final TransactionController txCtrl;
     private final CustomerPanel custPanel;
     private final DispenseController dispenseCtrl;
     private final PaymentMediator mediator;
     
     public FaultState(TransactionController txCtrl) {
-        this.txCtrl = txCtrl;
+        super(txCtrl);
         this.custPanel = txCtrl.getCustomerPanel();
         this.mediator = txCtrl.getMediator();
         this.dispenseCtrl = txCtrl.getDispenseController();

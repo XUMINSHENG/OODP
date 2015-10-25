@@ -5,11 +5,20 @@
  */
 package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 
+import sg.edu.nus.iss.vmcs.customer.TransactionController;
+
 /**
  *
  * @author Liu Xinzhuo
  */
 public abstract class TransactionControllerState {
+    
+    protected final TransactionController txCtrl;
+
+    protected TransactionControllerState(TransactionController txCtrl) {
+        this.txCtrl = txCtrl;
+    }
+    
     public void startTransaction(int drinkIdentifier)
     {
         throw new UnsupportedOperationException("Wrong State!");

@@ -15,10 +15,9 @@ import sg.edu.nus.iss.vmcs.system.SimulatorControlPanel;
  */
 public class MaintenanceState extends TransactionControllerState{
     
-    private final TransactionController txCtrl;
     
     public MaintenanceState(TransactionController txCtrl) {
-        this.txCtrl = txCtrl;
+        super(txCtrl);
     }
     
     @Override

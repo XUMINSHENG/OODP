@@ -16,7 +16,6 @@ import sg.edu.nus.iss.vmcs.customer.TransactionController;
  */
 public class TransactionState extends TransactionControllerState{
 
-    private final TransactionController txCtrl;
     private final CustomerPanel custPanel;
     private final DispenseController dispenseCtrl;
     private int selection=-1;
@@ -26,7 +25,7 @@ public class TransactionState extends TransactionControllerState{
     
     public TransactionState(TransactionController txCtrl)
     {
-        this.txCtrl = txCtrl;
+        super(txCtrl);
         this.dispenseCtrl = txCtrl.getDispenseController();
         this.custPanel = txCtrl.getCustomerPanel();
         this.selection = txCtrl.getSelection();
@@ -84,7 +83,6 @@ public class TransactionState extends TransactionControllerState{
         txCtrl.getCustomerPanel().setPaymentOptionBoxActive(false);
         this.mediator = txCtrl.getMediator();
         this.mediator.startPayment();
-        txCtrl.setState(new TransactionState(txCtrl));
     }
 
     
