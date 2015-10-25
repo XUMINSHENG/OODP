@@ -199,8 +199,8 @@ public class MachineryController implements Observer{
 	 * @param numOfCoins the number of coins to change.
 	 * @throws VMCSException if fail to update cash store display.
 	 */
-	public void giveChange(int idx, int numOfCoins) throws VMCSException {
-		storeCtrl.giveChange(idx, numOfCoins);
+	public void giveChange(CashStoreItem item , int numOfCoins) throws VMCSException {
+		storeCtrl.giveChange(item, numOfCoins);
 // +++ apply observer pattern XuMS 2015/10/09
 //		if (ml != null)
 //			ml.getCashStoreDisplay().update();

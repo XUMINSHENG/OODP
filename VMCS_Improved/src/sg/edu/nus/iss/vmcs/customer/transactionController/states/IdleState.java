@@ -5,7 +5,7 @@
  */
 package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 
-import sg.edu.nus.iss.vmcs.customer.ChangeGiver;
+//import sg.edu.nus.iss.vmcs.customer.ChangeGiver;
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
 import sg.edu.nus.iss.vmcs.customer.DispenseController;
 import sg.edu.nus.iss.vmcs.customer.PaymentMediator;

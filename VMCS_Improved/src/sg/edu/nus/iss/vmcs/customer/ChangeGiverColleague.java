@@ -5,6 +5,11 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import sg.edu.nus.iss.vmcs.store.CashStore;
 import sg.edu.nus.iss.vmcs.store.CashStoreItem;
 import sg.edu.nus.iss.vmcs.store.Coin;
 import sg.edu.nus.iss.vmcs.store.Store;
@@ -63,35 +68,34 @@ public class ChangeGiverColleague extends PaymentColleague{
     }
     
     public boolean giveChange(int changeRequired){
-	if(changeRequired==0)
+        if(changeRequired==0)
             return true;
-    	try{
-            int changeBal=changeRequired;
-            MainController mainCtrl=getMediator().getTxCtrl().getMainController();
-            StoreController storeCtrl=mainCtrl.getStoreController();
-            int cashStoreSize=storeCtrl.getStoreSize(Store.CASH); 
-            for(int i=cashStoreSize-1;i>=0;i--){
-    		StoreItem cashStoreItem=storeCtrl.getStore(Store.CASH).getStoreItem(i);
-    		int quantity=cashStoreItem.getQuantity();
-    		Coin coin=(Coin)cashStoreItem.getContent();
-		int value=coin.getValue();
-		int quantityRequired=0;
-		while(changeBal>0&&changeBal>=value&&quantity>0){
-                    changeBal-=value;
-                    quantityRequired++;
-                    quantity--;
-		}
-		mainCtrl.getMachineryController().giveChange(i,quantityRequired);
+        try{
+            int changeBal= changeRequired;
+            System.out.println("changeBal*****"+ changeBal);
+            MainController mainCtrl = getMediator().getTxCtrl().getMainController();
+            StoreController storeCtrl = mainCtrl.getStoreController();
+            int cashStoreSize = storeCtrl.getStoreSize(Store.CASH);
+            System.out.println("cashStoreSize*****"+cashStoreSize);
+            //get the head of the chain
+            CashStoreItem cashStoreItem = ((CashStore)storeCtrl.getStore(Store.CASH)).getHighestValueCashStoreItem();
+            //Create a hashMap for collecting the required quantity for each CashStoreItem
+            HashMap<CashStoreItem,Integer> itemQuantityRequired = new HashMap<CashStoreItem, Integer>();
+            //chain gets started
+            changeBal = cashStoreItem.handleChange(changeBal,itemQuantityRequired);
+            //give change
+            Iterator<Entry<CashStoreItem,Integer>> iterator = itemQuantityRequired.entrySet().iterator();
+            while(iterator.hasNext()){
+                HashMap.Entry<CashStoreItem,Integer> item = (HashMap.Entry<CashStoreItem,Integer>)iterator.next();
+                getMediator().getTxCtrl().getMainController().getMachineryController().giveChange(item.getKey(), item.getValue());
             }
             getMediator().getTxCtrl().getCustomerPanel().setChange(changeRequired-changeBal);
             if(changeBal>0)
-		getMediator().getTxCtrl().getCustomerPanel().displayChangeStatus(true);
-	}
-	catch(VMCSException ex){
-            getMediator().cancelPayment();
-//			getMediator().getTransactionController().terminateFault();
+                getMediator().getTxCtrl().getCustomerPanel().displayChangeStatus(true);
+        }catch(VMCSException ex){
+            getMediator().getTxCtrl().terminateFault();
             return false;
-	}
-	return true;
+        }
+        return true;
     }
 }

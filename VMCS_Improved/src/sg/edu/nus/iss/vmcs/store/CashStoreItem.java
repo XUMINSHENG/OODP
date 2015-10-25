@@ -7,6 +7,9 @@
  */
 package sg.edu.nus.iss.vmcs.store;
 
+import java.util.HashMap;
+import sg.edu.nus.iss.vmcs.util.VMCSException;
+
 /**
  * This entity object represents a column of coins in the vending machine&#46;
  * It can store a coin of any particular type&#46; There can be as many CashStoreItem
@@ -28,6 +31,8 @@ package sg.edu.nus.iss.vmcs.store;
  * @author Olivo Miotto, Pang Ping Li
  */
 public class CashStoreItem extends StoreItem {
+    
+        protected CashStoreItem nextCashStoreItem;
 
 	/**
 	 * This constructor creates an instance of {@link CashStoreItem} object.
@@ -37,6 +42,32 @@ public class CashStoreItem extends StoreItem {
 	public CashStoreItem(Coin coin, int qty) {
 		super((StoreObject) coin, qty);
 	}
+        public void setNestCashStoreItem(CashStoreItem nextCashStoreItem){
+            this.nextCashStoreItem = nextCashStoreItem;
+        }
+        public CashStoreItem getNextCashStoreItem(){
+            return nextCashStoreItem;
+        }
+        public int handleChange(int changeBal, HashMap<CashStoreItem, Integer> itemQuantityRequired) throws VMCSException{
+            int quantity = this.getQuantity();
+            Coin coin = (Coin)this.getContent();
+            int value = coin.getValue();
+            int quantityRequired = 0;
+            while(changeBal>0 && changeBal>=value && quantity >0){
+                changeBal -= value;
+                quantityRequired++;
+                quantity--;
+            }
+            itemQuantityRequired.put(this, quantityRequired);
+            if(changeBal==0){
+                return changeBal;
+            }else{
+                if (this.getNextCashStoreItem()!=null){
+                    changeBal=this.getNextCashStoreItem().handleChange(changeBal, itemQuantityRequired);
+                }
+                return changeBal;
+            }
+        }
         
         @Override
         public void notifyObservers(Object arg) {
