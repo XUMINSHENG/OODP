@@ -30,7 +30,9 @@ public class CoinMediator extends PaymentMediator{
 
     @Override
     public void invalidPayment(String msg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(msg);
+        getTxCtrl().getCustomerPanel().displayInvalidCoin(true);
+        continuePayment();
     }
     
     @Override

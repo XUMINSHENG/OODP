@@ -26,7 +26,7 @@ public class CardMediator extends PaymentMediator{
     
     @Override
     public void invalidPayment(String msg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(msg);
     }
 
     @Override
@@ -40,10 +40,10 @@ public class CardMediator extends PaymentMediator{
     @Override
     public void continuePayment() {
         invalidPayment("Not Enough Money inside Card");
+        cardReader.reset();
         getTxCtrl().getCustomerPanel().setCardInsertBoxActive(true);
         getTxCtrl().getCustomerPanel().displayInvalidCard(true);
         getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
-        cardReader.reset();
     }
 
     @Override

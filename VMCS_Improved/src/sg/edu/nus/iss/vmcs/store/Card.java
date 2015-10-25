@@ -21,7 +21,16 @@ public class Card extends StoreObject{
         this.cardId = id;
 //        according to cardId, get the value inside card from the card provider
 //        and then set vaule
-        setValue(100);
+       
+    }
+    
+    public Card(String id, int value){
+        this.cardId = id;
+        this.value = value;
+    }
+    
+    public String getCardId(){
+        return cardId;
     }
     
     public void setValue(int v){

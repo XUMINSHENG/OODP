@@ -6,6 +6,7 @@
 package sg.edu.nus.iss.vmcs.customer;
 
 import sg.edu.nus.iss.vmcs.store.Card;
+import sg.edu.nus.iss.vmcs.store.CardStore;
 import sg.edu.nus.iss.vmcs.store.StoreObject;
 
 /**
@@ -46,19 +47,19 @@ public class CardReaderColleague extends PaymentColleague{
 //    }
     
     public void readCard(String id){
-//        verify card id and get total money inside the card
-        Card c = new Card(id);
-        c.setValue(100);
+//        verify card id and get total money inside the card        
+        Card c = CardStore.getCardById(id);
         
-        if(c==null){
-            getMediator().invalidPayment("Invalid Card");
+        if(c==null||c.getValue()==0){
+            getMediator().continuePayment();
+        }else{
+            this.card = c;
+            getMediator().processPayment(c.getValue());
         }
-        this.card = c;
-        getMediator().processPayment(c.getValue());
     }
     
     public void chargeCard(int price){
-        System.out.println("Charge: $" + (card.getValue() - price) );
+        System.out.println("Charge: $" + Integer.toString(card.getValue() - price) );
     }
     
 }
