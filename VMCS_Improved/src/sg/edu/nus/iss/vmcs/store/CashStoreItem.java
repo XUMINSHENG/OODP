@@ -8,7 +8,6 @@
 package sg.edu.nus.iss.vmcs.store;
 
 import java.util.HashMap;
-import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**
  * This entity object represents a column of coins in the vending machine&#46;
@@ -48,7 +47,7 @@ public class CashStoreItem extends StoreItem {
         public CashStoreItem getNextCashStoreItem(){
             return nextCashStoreItem;
         }
-        public int handleChange(int changeBal, HashMap<CashStoreItem, Integer> itemQuantityRequired) throws VMCSException{
+        public int handleChange(int changeBal, HashMap<CashStoreItem, Integer> itemQuantityRequired){
             int quantity = this.getQuantity();
             Coin coin = (Coin)this.getContent();
             int value = coin.getValue();
