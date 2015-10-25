@@ -7,6 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import java.util.Arrays;
 import java.util.Observable;
 import java.util.Observer;
 import sg.edu.nus.iss.vmcs.store.DrinksBrand;
@@ -118,10 +119,6 @@ public class DispenseController implements Observer{
 	 */
 	public boolean dispenseDrink(int selectedBrand){
 		try{
-// +++ apply observer pattern XuMS 2015/10/09
-                        // set selected drink index
-                        updateDrinkSelection(selectedBrand);
-// --- apply observer pattern XuMS 2015/10/09
                         
 			txCtrl.getMainController().getMachineryController().dispenseDrink(selectedBrand);
 			
@@ -137,9 +134,8 @@ public class DispenseController implements Observer{
 // --- apply observer pattern XuMS 2015/10/09
                         
 			txCtrl.getCustomerPanel().setCan(drinksName);
-			
-// +++ apply observer pattern XuMS 2015/10/09            
-//                        updateDrinkSelection(selectedBrand);
+                        updateDrinkSelection(selectedBrand);
+// +++ apply observer pattern XuMS 2015/10/09                            
 //			txCtrl.getCustomerPanel().getDrinkSelectionBox().update(selectedBrand, quantity, price, drinksName);
 // --- apply observer pattern XuMS 2015/10/09
 		}
@@ -153,18 +149,24 @@ public class DispenseController implements Observer{
 // +++ apply observer pattern XuMS 2015/10/09
     @Override
     public void update(Observable o, Object arg) {
-        if (o instanceof DrinksStoreItem){
-            
-            StoreItem drinkStoreItem=(StoreItem)o;
-            StoreObject storeObject=drinkStoreItem.getContent();
-            DrinksBrand drinksBrand=(DrinksBrand)storeObject;
-            String drinksName=drinksBrand.getName();
-            int price=drinksBrand.getPrice();
-            int quantity=drinkStoreItem.getQuantity();
-            txCtrl.getCustomerPanel().getDrinkSelectionBox().
-                    update(this.selection, quantity, price, drinksName);
-        }
         
+        if(null != txCtrl.getCustomerPanel()){
+            if (o instanceof DrinksStoreItem){
+
+                StoreItem drinkStoreItem=(StoreItem)o;
+                StoreItem[] storeItems = txCtrl.getMainController().
+                        getStoreController().getStoreItems(Store.DRINK);
+                int index = Arrays.asList(storeItems).indexOf(o);
+
+                StoreObject storeObject=drinkStoreItem.getContent();
+                DrinksBrand drinksBrand=(DrinksBrand)storeObject;
+                String drinksName=drinksBrand.getName();
+                int price=drinksBrand.getPrice();
+                int quantity=drinkStoreItem.getQuantity();
+                txCtrl.getCustomerPanel().getDrinkSelectionBox().
+                        update(index, quantity, price, drinksName);
+            }
+        }
     }
     
     private void establishObservation(){
