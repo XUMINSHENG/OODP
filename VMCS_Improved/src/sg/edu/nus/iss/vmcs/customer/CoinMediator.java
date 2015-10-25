@@ -76,6 +76,10 @@ public class CoinMediator extends PaymentMediator{
     public void cancelPayment() {
         coinReceiver.stopReceive();
         coinReceiver.refundCash();
+        getTxCtrl().getCustomerPanel().setPaymentOptionBoxActive(false);
+        getTxCtrl().getCustomerPanel().setCoinInputBoxActive(false);
+        getTxCtrl().getCustomerPanel().displayInvalidCoin(false);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
     }
 
     public CoinReceiverColleague getCoinReceiver() {

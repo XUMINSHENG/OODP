@@ -58,6 +58,7 @@ public class CardMediator extends PaymentMediator{
 
     @Override
     public void cancelPayment() {
+        getTxCtrl().getCustomerPanel().setPaymentOptionBoxActive(false);
         getTxCtrl().getCustomerPanel().setCardInsertBoxActive(false);
         getTxCtrl().getCustomerPanel().displayInvalidCard(false);
         getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
