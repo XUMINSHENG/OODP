@@ -8,6 +8,7 @@ package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 import sg.edu.nus.iss.vmcs.customer.ChangeGiver;
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
 import sg.edu.nus.iss.vmcs.customer.DispenseController;
+import sg.edu.nus.iss.vmcs.customer.PaymentMediator;
 import sg.edu.nus.iss.vmcs.customer.TransactionController;
 import sg.edu.nus.iss.vmcs.store.DrinksBrand;
 import sg.edu.nus.iss.vmcs.store.Store;
@@ -22,14 +23,15 @@ public class IdleState implements TransactionControllerState{
     private final TransactionController txCtrl;
     private StoreItem storeItem;
     private DrinksBrand drinksBrand;
-    private final CoinReceiver coinReceiver;
+//    private final CoinReceiver coinReceiver;
     private final DispenseController dispenseCtrl;
-    private final ChangeGiver changeGiver;
+//    private final ChangeGiver changeGiver;
+    private PaymentMediator mediator;
     
     public IdleState(TransactionController txCtrl) {
         this.txCtrl = txCtrl;
-        this.changeGiver = txCtrl.getChangeGiver();
-        this.coinReceiver = txCtrl.getCoinReceiver();
+//        this.changeGiver = txCtrl.getChangeGiver();
+//        this.coinReceiver = txCtrl.getCoinReceiver();
         this.dispenseCtrl = txCtrl.getDispenseController();
     }
     
@@ -39,13 +41,15 @@ public class IdleState implements TransactionControllerState{
             this.drinksBrand = (DrinksBrand) storeItem.getContent();
             txCtrl.setSelection(drinkIdentifier);
             txCtrl.setPrice(drinksBrand.getPrice());
-            this.changeGiver.resetChange();
+//            this.changeGiver.resetChange();
             dispenseCtrl.ResetCan();
-            changeGiver.displayChangeStatus();
+//            changeGiver.displayChangeStatus();
             dispenseCtrl.allowSelection(false);
             txCtrl.getCustomerPanel().setTerminateButtonActive(true);
-            coinReceiver.startReceiver();
-            txCtrl.setState(new TransactionState(txCtrl));
+//            coinReceiver.startReceiver();
+            mediator = null;
+            txCtrl.getCustomerPanel().setPaymentOptionBoxActive(true);
+            
     }
 
     @Override
@@ -54,14 +58,17 @@ public class IdleState implements TransactionControllerState{
     }
 
     @Override
-    public void completeTransaction() {
+    public void completeTransaction(int change) {
        throw new UnsupportedOperationException("Wrong State!");
     }
 
     @Override
     public void cancelTransaction() {
-        coinReceiver.stopReceive();
-	coinReceiver.refundCash();
+//        coinReceiver.stopReceive();
+//	coinReceiver.refundCash();
+        if(mediator!=null){
+            mediator.cancelPayment();
+        }
 	dispenseCtrl.allowSelection(true);
 	txCtrl.refreshMachineryDisplay();
         txCtrl.setState(new IdleState(txCtrl));
@@ -70,8 +77,12 @@ public class IdleState implements TransactionControllerState{
     @Override
     public void startMaintenance() {
 	dispenseCtrl.allowSelection(false);
+        if(mediator!=null){
+            mediator.cancelPayment();
+        }
 	//coinReceiver.stopReceive();
 	//coinReceiver.refundCash();
+        
 	if(txCtrl.getCustomerPanel()!=null){
 		txCtrl.getCustomerPanel().setTerminateButtonActive(false);
 	}
@@ -87,6 +98,14 @@ public class IdleState implements TransactionControllerState{
     @Override
     public void terminateFault() {
         throw new UnsupportedOperationException("Wrong State!");
+    }
+
+    @Override
+    public void startPayment() {
+        txCtrl.getCustomerPanel().setPaymentOptionBoxActive(false);
+        this.mediator = txCtrl.getMediator();
+        this.mediator.startPayment();
+        txCtrl.setState(new TransactionState(txCtrl));
     }
     
 }

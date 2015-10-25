@@ -280,17 +280,17 @@ public class TransactionController {
 	 * This method sets whether the change is given.
 	 * @param changeGiven TRUE the change is given, otherwise FALSE.
 	 */
-//	public void setChangeGiven(boolean changeGiven) {
-//		this.changeGiven = changeGiven;
-//	}
+	public void setChangeGiven(boolean changeGiven) {
+		this.changeGiven = changeGiven;
+	}
 
 	/**
 	 * This method returns whether the change is given.
 	 * @return TRUE if the change is given, otherwise FALSE.
 	 */
-//	public boolean isChangeGiven() {
-//		return changeGiven;
-//	}
+	public boolean isChangeGiven() {
+		return changeGiven;
+	}
 
 	/**
 	 * This method sets whether the drink is dispensed.

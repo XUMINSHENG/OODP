@@ -5,14 +5,17 @@
  */
 package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 
+import sg.edu.nus.iss.vmcs.customer.PaymentMediator;
+
 /**
  *
  * @author Liu Xinzhuo
  */
 public interface TransactionControllerState {
     public void startTransaction(int drinkIdentifier);
+    public void startPayment();
     public void processMoneyReceived(int total);
-    public void completeTransaction();
+    public void completeTransaction(int change);
     public void cancelTransaction();
     public void startMaintenance ();
     public void endMaintenance();

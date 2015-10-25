@@ -8,6 +8,7 @@ package sg.edu.nus.iss.vmcs.customer.transactionController.states;
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
 import sg.edu.nus.iss.vmcs.customer.CustomerPanel;
 import sg.edu.nus.iss.vmcs.customer.DispenseController;
+import sg.edu.nus.iss.vmcs.customer.PaymentMediator;
 import sg.edu.nus.iss.vmcs.customer.TransactionController;
 
 /**
@@ -18,18 +19,19 @@ public class FaultState implements TransactionControllerState{
     
     private final TransactionController txCtrl;
     private final CustomerPanel custPanel;
-    private final CoinReceiver coinReceiver;
+//    private final CoinReceiver coinReceiver;
     private final DispenseController dispenseCtrl;
-    
+    private final PaymentMediator mediator;
     
     public FaultState(TransactionController txCtrl) {
         this.txCtrl = txCtrl;
         this.custPanel = txCtrl.getCustomerPanel();
-        this.coinReceiver = txCtrl.getCoinReceiver();
+//        this.coinReceiver = txCtrl.getCoinReceiver();
+        this.mediator = txCtrl.getMediator();
         this.dispenseCtrl = txCtrl.getDispenseController();
     }
 
-    FaultState() {
+    public FaultState() {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 
@@ -44,7 +46,7 @@ public class FaultState implements TransactionControllerState{
     }
 
     @Override
-    public void completeTransaction() {
+    public void completeTransaction(int change) {
         throw new UnsupportedOperationException("Wrong State!");
     }
 
@@ -67,13 +69,21 @@ public class FaultState implements TransactionControllerState{
     public void terminateFault() {
         System.out.println("TerminateTransaction: Begin");
         dispenseCtrl.allowSelection(false);
-        coinReceiver.stopReceive();
-	coinReceiver.refundCash();
+        if(mediator!=null){
+            mediator.cancelPayment();
+        }
+//        coinReceiver.stopReceive();
+//	coinReceiver.refundCash();
 	if(custPanel!=null)
         {
             custPanel.setTerminateButtonActive(false);
 	}
         txCtrl.refreshMachineryDisplay();
         System.out.println("TerminateTransaction: End");
+    }
+
+    @Override
+    public void startPayment() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

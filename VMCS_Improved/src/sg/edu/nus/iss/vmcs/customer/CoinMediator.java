@@ -6,6 +6,7 @@
 package sg.edu.nus.iss.vmcs.customer;
 
 import java.util.ArrayList;
+import sg.edu.nus.iss.vmcs.customer.transactionController.states.FaultState;
 
 /**
  *
@@ -49,11 +50,17 @@ public class CoinMediator extends PaymentMediator{
     @Override
     public void completePayment(int total) {
         if(total>0){
-            changeGiver.giveChange(total);
+            if(changeGiver.giveChange(total)){
+                getTxCtrl().setState(new FaultState());
+                getTxCtrl().terminateFault();
+            };
         }else{
             getTxCtrl().getCustomerPanel().setChange(0);
         }
-        coinReceiver.storeCash();
+        if(!coinReceiver.storeCash()){
+            getTxCtrl().setState(new FaultState());
+            getTxCtrl().terminateFault();
+        }
     }
     
     @Override

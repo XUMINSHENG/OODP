@@ -36,8 +36,9 @@ public class TransactionController {
 	private MainController mainCtrl;
 	private CustomerPanel custPanel;
 	private DispenseController dispenseCtrl;
-	private ChangeGiver changeGiver;
-	private CoinReceiver coinReceiver;
+//	private ChangeGiver changeGiver;
+//	private CoinReceiver coinReceiver;
+        private PaymentMediator mediator;
         
         private TransactionControllerState state;
         
@@ -61,8 +62,8 @@ public class TransactionController {
 	public TransactionController(MainController mainCtrl) {
 		this.mainCtrl = mainCtrl;
 		dispenseCtrl=new DispenseController(this);
-		coinReceiver=new CoinReceiver(this);
-		changeGiver=new ChangeGiver(this);
+//		coinReceiver=new CoinReceiver(this);
+//		changeGiver=new ChangeGiver(this);
                 state = new IdleState(this);
 	}
 
@@ -83,8 +84,8 @@ public class TransactionController {
 		custPanel.display();
 		dispenseCtrl.updateDrinkPanel();
 		dispenseCtrl.allowSelection(true);
-		changeGiver.displayChangeStatus();
-		coinReceiver.setActive(false);
+//		changeGiver.displayChangeStatus();
+//		coinReceiver.setActive(false);
 	}
 	
 	/**
@@ -107,6 +108,11 @@ public class TransactionController {
 	public void startTransaction(int drinkIdentifier){
 		this.state.startTransaction(drinkIdentifier);
 	}
+        
+        public void startPayment(PaymentMediator m){
+            this.mediator = m;
+            this.state.startPayment();
+        }
 	
 	/**
 	 * This method processes the money received by the Coin Receiver during the progress
@@ -138,8 +144,8 @@ public class TransactionController {
 	 * <br>
 	 * 4- Reset the Drink Selection Box to allow further transactions.
 	 */
-	public void completeTransaction(){
-		this.state.completeTransaction();
+	public void completeTransaction(int change){
+		this.state.completeTransaction(change);
     	}
 	
 	/**
@@ -191,7 +197,9 @@ public class TransactionController {
 		*/
 		dispenseCtrl.updateDrinkPanel();
 		dispenseCtrl.allowSelection(true);
-		changeGiver.displayChangeStatus();
+//		changeGiver.displayChangeStatus();
+                this.mediator = null;
+                custPanel.setPaymentOptionBoxActive(false);
 		custPanel.setTerminateButtonActive(true);
 	}
 	
@@ -288,17 +296,20 @@ public class TransactionController {
 	 * This method returns the ChangeGiver.
 	 * @return the ChangeGiver.
 	 */
-	public ChangeGiver getChangeGiver(){
-		return changeGiver;
-	}
+//	public ChangeGiver getChangeGiver(){
+//		return changeGiver;
+//	}
 	
 	/**
 	 * This method returns the CoinReceiver.
 	 * @return the CoinReceiver.
 	 */
-	public CoinReceiver getCoinReceiver(){
-		return coinReceiver;
-	}
+//	public CoinReceiver getCoinReceiver(){
+//		return coinReceiver;
+//	}
+        public PaymentMediator getMediator(){
+            return mediator;
+        }
 	
 	/**
 	 * This method refreshes the MachinerySimulatorPanel.

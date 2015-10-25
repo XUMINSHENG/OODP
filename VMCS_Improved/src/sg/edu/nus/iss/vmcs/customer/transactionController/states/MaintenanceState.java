@@ -32,7 +32,7 @@ public class MaintenanceState implements TransactionControllerState{
     }
 
     @Override
-    public void completeTransaction() {
+    public void completeTransaction(int change) {
         throw new UnsupportedOperationException("Wrong State!");
     }
 
@@ -61,6 +61,11 @@ public class MaintenanceState implements TransactionControllerState{
     @Override
     public void terminateFault() {
         throw new UnsupportedOperationException("Wrong State!");
+    }
+
+    @Override
+    public void startPayment() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
