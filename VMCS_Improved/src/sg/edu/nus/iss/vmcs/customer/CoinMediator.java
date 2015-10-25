@@ -50,7 +50,7 @@ public class CoinMediator extends PaymentMediator{
     @Override
     public void completePayment(int total) {
         if(total>0){
-            if(changeGiver.giveChange(total)){
+            if(!changeGiver.giveChange(total)){
                 getTxCtrl().setState(new FaultState());
                 getTxCtrl().terminateFault();
             };
