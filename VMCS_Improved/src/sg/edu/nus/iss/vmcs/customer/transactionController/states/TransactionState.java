@@ -60,8 +60,11 @@ public class TransactionState extends TransactionControllerState{
 
     @Override
     public void cancelTransaction() {
-        mediator.cancelPayment();
+        System.out.println("transactionstate cancel");
+        if(mediator!=null)
+            mediator.cancelPayment();
 	dispenseCtrl.allowSelection(true);
+        txCtrl.getCustomerPanel().setPaymentOptionBoxActive(false);
 	txCtrl.refreshMachineryDisplay();
         txCtrl.setState(new IdleState(txCtrl));
     }
@@ -69,7 +72,8 @@ public class TransactionState extends TransactionControllerState{
     @Override
     public void startMaintenance() {
         dispenseCtrl.allowSelection(false);
-        mediator.cancelPayment();
+        if(mediator != null)
+            mediator.cancelPayment();
 	if(custPanel!=null){
 		custPanel.setTerminateButtonActive(false);
 	}

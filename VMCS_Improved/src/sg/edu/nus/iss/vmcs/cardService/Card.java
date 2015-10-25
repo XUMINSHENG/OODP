@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sg.edu.nus.iss.vmcs.store;
+package sg.edu.nus.iss.vmcs.cardService;
 
 /**
  *
  * @author xiejiabao
  */
-public class Card extends StoreObject{
+public class Card{
     private int value;
     private String cardId;
     

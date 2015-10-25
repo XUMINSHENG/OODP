@@ -93,7 +93,7 @@ public class CustomerPanel extends Dialog {
     private WarningDisplay wndInvalidCoin=new WarningDisplay("Invalid Coin");
     private LabelledValue lbdTotalMoneyInserted=new LabelledValue("Total Money Inserted:","0 C",50);
     private WarningDisplay wndNoChangeAvailable=new WarningDisplay("No Change Available");
-    private Button btnTerminate=new Button("Terminate and Return Cash");
+    private Button btnTerminate=new Button("Terminate and Return Cash or Remove Card");
     private LabelledValue lbdCollectCoins=new LabelledValue("Collect Coins:","0 C",50);
     private LabelledValue lbdCollectCan=new LabelledValue("Collect Can Here:","",100);
     private Label lblChooseOption=new Label("Choose Payment Option");
@@ -101,6 +101,7 @@ public class CustomerPanel extends Dialog {
     private Label lblInsertCard = new Label("Insert Card Option");
     private CardInsertBox cardInsertBox;
     private WarningDisplay wndInvalidCard=new WarningDisplay("Invalid Card");
+    private LabelledValue lbdTotalMoneyInsideCard=new LabelledValue("Total Money Inside Card:","0 C",50);
     
     /**
      * This constructor creates an instance of the Customer Panel&#46; It further
@@ -155,32 +156,35 @@ public class CustomerPanel extends Dialog {
 			    new Insets(2,0,0,0),10,0));
                 pan0.add(wndInvalidCard,new GridBagConstraints(0,4,1,1,1.0,0.0,
 			    GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,
-			    new Insets(5,0,0,0),10,0));  
-		pan0.add(lblEnterCoins,new GridBagConstraints(0,5,1,1,1.0,0.0,
+			    new Insets(5,0,0,0),10,0));
+                pan0.add(lbdTotalMoneyInsideCard,new GridBagConstraints(0,5,1,1,1.0,0.0,
+			    GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,
+			    new Insets(5,0,0,0),10,0));
+		pan0.add(lblEnterCoins,new GridBagConstraints(0,6,1,1,1.0,0.0,
 			    GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,
 			    new Insets(5,0,0,0),10,0));  
-		pan0.add(coinInputBox,new GridBagConstraints(0,6,0,1,1.0,0.0,
+		pan0.add(coinInputBox,new GridBagConstraints(0,7,0,1,1.0,0.0,
 			    GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,
 			    new Insets(2,0,0,0),10,0));  
-		pan0.add(wndInvalidCoin,new GridBagConstraints(0,7,1,1,1.0,0.0,
+		pan0.add(wndInvalidCoin,new GridBagConstraints(0,8,1,1,1.0,0.0,
 			    GridBagConstraints.WEST,GridBagConstraints.HORIZONTAL,
 			    new Insets(5,0,0,0),10,0));
-		pan0.add(lbdTotalMoneyInserted,new GridBagConstraints(0,8,0,1,0.0,0.0,
+		pan0.add(lbdTotalMoneyInserted,new GridBagConstraints(0,9,0,1,0.0,0.0,
 			    GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,
 			    new Insets(5,0,0,0),10,0));
-		pan0.add(drinkSelectionBox,new GridBagConstraints(0,9,0,1,0.0,0.0,
+		pan0.add(drinkSelectionBox,new GridBagConstraints(0,10,0,1,0.0,0.0,
 			    GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,
 			    new Insets(5,0,0,0),10,0));
-		pan0.add(wndNoChangeAvailable,new GridBagConstraints(0,10,0,1,0.0,0.0,
+		pan0.add(wndNoChangeAvailable,new GridBagConstraints(0,11,0,1,0.0,0.0,
 			    GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,
 			    new Insets(5,0,0,0),10,0));
-		pan0.add(btnTerminate,new GridBagConstraints(0,11,0,1,0.0,0.0,
+		pan0.add(btnTerminate,new GridBagConstraints(0,12,0,1,0.0,0.0,
 			    GridBagConstraints.CENTER,GridBagConstraints.NONE,
 			    new Insets(5,0,0,0),10,0));
-		pan0.add(lbdCollectCoins,new GridBagConstraints(0,12,0,1,0.0,0.0,
+		pan0.add(lbdCollectCoins,new GridBagConstraints(0,13,0,1,0.0,0.0,
 			    GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,
 			    new Insets(5,0,0,0),10,0));
-		pan0.add(lbdCollectCan,new GridBagConstraints(0,13,0,1,0.0,0.0,
+		pan0.add(lbdCollectCan,new GridBagConstraints(0,14,0,1,0.0,0.0,
 			    GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL,
 			    new Insets(2,0,20,0),10,0));
 		
@@ -210,8 +214,13 @@ public class CustomerPanel extends Dialog {
 	 * @param i the total money inserted.
 	 */
 	public void setTotalMoneyInserted(int i){
-		lbdTotalMoneyInserted.setValue(i+ " C");
+		lbdTotalMoneyInserted.setValue(i + " C");
 	}
+        
+        public void setTotalMoneyInsideCard(int i){
+            System.out.println(i+" C");
+            lbdTotalMoneyInsideCard.setValue(i + " C");
+        }
 	
 	/**
 	 * This method accumulative adds the money inserted&#46; 

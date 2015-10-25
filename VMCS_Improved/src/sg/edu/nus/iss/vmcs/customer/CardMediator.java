@@ -5,6 +5,9 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author xieqiang
@@ -22,6 +25,7 @@ public class CardMediator extends PaymentMediator{
     public void startPayment() {
         resetPayment();
         getTxCtrl().getCustomerPanel().setCardInsertBoxActive(true);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInsideCard(0);
     }
     
     @Override
@@ -33,7 +37,7 @@ public class CardMediator extends PaymentMediator{
     public void processPayment(int total) {
         getTxCtrl().getCustomerPanel().setCardInsertBoxActive(false);
         getTxCtrl().getCustomerPanel().displayInvalidCard(false);
-        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(total);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInsideCard(total);
         getTxCtrl().processMoneyReceived(total);
     }
 
@@ -43,12 +47,15 @@ public class CardMediator extends PaymentMediator{
         cardReader.reset();
         getTxCtrl().getCustomerPanel().setCardInsertBoxActive(true);
         getTxCtrl().getCustomerPanel().displayInvalidCard(true);
-        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInsideCard(0);
     }
 
     @Override
-    public void completePayment(int price) {
-        cardReader.chargeCard(price);
+    public void completePayment(int balance) {
+        cardReader.chargeCard(balance);
+        getTxCtrl().getCustomerPanel().setCardInsertBoxActive(false);
+        getTxCtrl().getCustomerPanel().displayInvalidCard(false);
+        getTxCtrl().getCustomerPanel().setTotalMoneyInsideCard(balance);
     }
 
     @Override
@@ -58,11 +65,11 @@ public class CardMediator extends PaymentMediator{
 
     @Override
     public void cancelPayment() {
+        cardReader.reset();
         getTxCtrl().getCustomerPanel().setPaymentOptionBoxActive(false);
         getTxCtrl().getCustomerPanel().setCardInsertBoxActive(false);
         getTxCtrl().getCustomerPanel().displayInvalidCard(false);
-        getTxCtrl().getCustomerPanel().setTotalMoneyInserted(0);
-        cardReader.reset();
+        getTxCtrl().getCustomerPanel().setTotalMoneyInsideCard(0);
     }
 
     @Override

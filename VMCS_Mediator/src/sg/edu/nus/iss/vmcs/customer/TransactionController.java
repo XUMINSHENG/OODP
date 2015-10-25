@@ -201,8 +201,8 @@ public class TransactionController {
 	public void terminateFault(){
 		System.out.println("TerminateFault: Begin");
 		dispenseCtrl.allowSelection(false);
-                
-                mediator.cancelPayment();
+                if(mediator != null)
+                    mediator.cancelPayment();
 //		coinReceiver.refundCash();
 		
                 refreshMachineryDisplay();
@@ -224,8 +224,8 @@ public class TransactionController {
 	public void terminateTransaction(){
 		System.out.println("TerminateTransaction: Begin");
 		dispenseCtrl.allowSelection(false);
-                
-                mediator.cancelPayment();
+                if(mediator != null)
+                    mediator.cancelPayment();
 //		coinReceiver.stopReceive();
 //		coinReceiver.refundCash();
                 
@@ -242,7 +242,8 @@ public class TransactionController {
 	public void cancelTransaction(){
 		System.out.println("CancelTransaction: Begin");
                 
-                mediator.cancelPayment();
+                if(mediator != null)
+                    mediator.cancelPayment();
 //		coinReceiver.stopReceive();
 //		coinReceiver.refundCash();
 		
@@ -262,7 +263,8 @@ public class TransactionController {
 		*/
 		dispenseCtrl.updateDrinkPanel();
 		dispenseCtrl.allowSelection(true);
-		mediator.refresh();
+                if(mediator!=null)
+                    mediator.refresh();
 //                changeGiver.displayChangeStatus();
 		custPanel.setTerminateButtonActive(true);
 	}

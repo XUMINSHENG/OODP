@@ -20,7 +20,7 @@ public class CardInsertBox extends Panel{
     
     public CardInsertBox(TransactionController t){
         this.txCtrl = t;
-        validCard = new CardButton("Valid Card","valid card");
+        validCard = new CardButton("100C Card","valid card");
         invalidCard = new CardButton("Invalid Card","invalid card");
         validCard.addActionListener(new CardInsertListener(MediatorFactory.getCardMediator().getCardReader()));
         invalidCard.addActionListener(new CardInsertListener(MediatorFactory.getCardMediator().getCardReader()));

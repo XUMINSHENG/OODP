@@ -37,6 +37,10 @@ public class IdleState extends TransactionControllerState{
         dispenseCtrl.ResetCan();
         dispenseCtrl.allowSelection(false);
         txCtrl.getCustomerPanel().setTerminateButtonActive(true);
+        this.mediator = txCtrl.getMediator();
+        if(mediator!=null){
+            mediator.cancelPayment();
+        }
         mediator = null;
         txCtrl.getCustomerPanel().setPaymentOptionBoxActive(true);
         txCtrl.setState(new TransactionState(txCtrl));
@@ -44,10 +48,14 @@ public class IdleState extends TransactionControllerState{
 
     @Override
     public void cancelTransaction() {
+        System.out.println("idlestate cancel");
+        this.mediator = txCtrl.getMediator();
         if(mediator!=null){
+            System.out.println("mediator cancel");
             mediator.cancelPayment();
         }
 	dispenseCtrl.allowSelection(true);
+        txCtrl.getCustomerPanel().setPaymentOptionBoxActive(false);
 	txCtrl.refreshMachineryDisplay();
         txCtrl.setState(new IdleState(txCtrl));
     }
@@ -55,6 +63,7 @@ public class IdleState extends TransactionControllerState{
     @Override
     public void startMaintenance() {
 	dispenseCtrl.allowSelection(false);
+        this.mediator = txCtrl.getMediator();
         if(mediator!=null){
             mediator.cancelPayment();
         }

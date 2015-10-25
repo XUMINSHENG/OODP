@@ -5,8 +5,8 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
-import sg.edu.nus.iss.vmcs.store.Card;
-import sg.edu.nus.iss.vmcs.store.CardStore;
+import sg.edu.nus.iss.vmcs.cardService.Card;
+import sg.edu.nus.iss.vmcs.cardService.CardService;
 import sg.edu.nus.iss.vmcs.store.StoreObject;
 
 /**
@@ -20,35 +20,14 @@ public class CardReaderColleague extends PaymentColleague{
         super(m);
     }
 
-//    @Override
-//    public void start() {
-//        reset();
-//        getMediator().getTransactionController().getCustomerPanel().setCardInsertBoxActive(true);
-//    }
-//
-//    @Override
-//    public void process(StoreObject s) {
-//        
-//    }
-//
-//    @Override
-//    public void complete() {
-//        chargeCard(getTotal());
-//    }
-
     @Override
     public void reset() {
         this.card = null;
     }
-
-//    @Override
-//    public void terminate() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
     
     public void readCard(String id){
 //        verify card id and get total money inside the card        
-        Card c = CardStore.getCardById(id);
+        Card c = CardService.readCard(id);
         
         if(c==null||c.getValue()==0){
             getMediator().continuePayment();
@@ -58,8 +37,8 @@ public class CardReaderColleague extends PaymentColleague{
         }
     }
     
-    public void chargeCard(int price){
-        System.out.println("Charge: $" + Integer.toString(card.getValue() - price) );
+    public void chargeCard(int balance){
+        System.out.println("Charge: " + Integer.toString(this.card.getValue() - balance) +" C");
     }
     
 }
