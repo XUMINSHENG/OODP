@@ -323,7 +323,7 @@ public class StoreController {
 	 * This method instructs the {@link CashStore} to issue a number of {@link Coin} of a specific
 	 * denomination, and then updates the {@link sg.edu.nus.iss.vmcs.machinery.MachinerySimulatorPanel}&#46; It return TRUE
 	 * or FALSE to indicate whether the change issue was successful&#46;
-	 * @param idx the index of the Coin&#46;
+	 * @param item the index of the Coin&#46;
 	 * @param numOfCoins the number of Coin to deduct&#46; 
 	 */
 	public void giveChange(CashStoreItem item, int numOfCoins)  {

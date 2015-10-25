@@ -394,7 +394,7 @@ public class StoreControllerTest extends TestCase{
 			if(qty1==0)
 				continue;
 			//Act give change
-			storeController.giveChange(i,1);
+			storeController.giveChange(cashStoreItem,1);
 			cashStoreItem=(CashStoreItem)cashStore.getStoreItem(i);
 			int qty2=cashStoreItem.getQuantity();
 			//Assert
