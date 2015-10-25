@@ -148,8 +148,10 @@ public class TransactionController {
 	 * @param total the total money received&#46;
 	 */
 	public void processMoneyReceived(int total){
-		if(total>=price)
-			completeTransaction(total);
+		if(total>=price){
+                    int change=total-price;
+                    completeTransaction(change);
+                }
 		else{
                     mediator.continuePayment();
 //			coinReceiver.continueReceive();
@@ -169,13 +171,12 @@ public class TransactionController {
 	 * <br>
 	 * 4- Reset the Drink Selection Box to allow further transactions.
 	 */
-	public void completeTransaction(int total){
+	public void completeTransaction(int change){
 		System.out.println("CompleteTransaction: Begin");
 		dispenseCtrl.dispenseDrink(selection);
-                
-                mediator.completePayment(price);
+               
 //		int totalMoneyInserted=coinReceiver.getTotalInserted();
-		int change=total-price;
+		
                 mediator.completePayment(change);
 //		if(change>0){
 //			changeGiver.giveChange(change);
