@@ -7,6 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.machinery;
 
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 import sg.edu.nus.iss.vmcs.system.*;
@@ -195,12 +196,11 @@ public class MachineryController implements Observer{
 	 * This method instructs the CashStore to issue a number of coins of a specific
 	 * denomination, and hen updates the MachinerySimulatorPanel&#46; It returns 
 	 * TRUE or FALSE to indiate whether the change issue was successful.
-	 * @param idx the index of the cash store item.
-	 * @param numOfCoins the number of coins to change.
+	 * @param cashStoreItemMap the map of Coins and their Number to deduct&#46; 
 	 * @throws VMCSException if fail to update cash store display.
 	 */
-	public void giveChange(CashStoreItem item , int numOfCoins) throws VMCSException {
-		storeCtrl.giveChange(item, numOfCoins);
+	public void giveChange(HashMap<CashStoreItem,Integer> cashStoreItemMap) throws VMCSException {
+		storeCtrl.giveChange(cashStoreItemMap);
 // +++ apply observer pattern XuMS 2015/10/09
 //		if (ml != null)
 //			ml.getCashStoreDisplay().update();

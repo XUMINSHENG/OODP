@@ -9,7 +9,10 @@ package sg.edu.nus.iss.vmcs.store;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This control object manages changes in CashStore attributes and 
@@ -323,13 +326,15 @@ public class StoreController {
 	 * This method instructs the {@link CashStore} to issue a number of {@link Coin} of a specific
 	 * denomination, and then updates the {@link sg.edu.nus.iss.vmcs.machinery.MachinerySimulatorPanel}&#46; It return TRUE
 	 * or FALSE to indicate whether the change issue was successful&#46;
-	 * @param item the index of the Coin&#46;
-	 * @param numOfCoins the number of Coin to deduct&#46; 
+	 * @param cashStoreItemMap the map of Coins and their Number to deduct&#46; 
 	 */
-	public void giveChange(CashStoreItem item, int numOfCoins)  {
-//		CashStoreItem item;             
-//		item = (CashStoreItem) getStoreItem(Store.CASH, idx);
-		for (int i = 0; i < numOfCoins; i++)
-			item.decrement();
+	public void giveChange(HashMap<CashStoreItem,Integer> cashStoreItemMap)  {
+
+            Iterator<Map.Entry<CashStoreItem,Integer>> iterator = cashStoreItemMap.entrySet().iterator();
+            while(iterator.hasNext()){
+                HashMap.Entry<CashStoreItem,Integer> item = (HashMap.Entry<CashStoreItem,Integer>)iterator.next();
+                for (int i = 0; i < item.getValue(); i++)
+			item.getKey().decrement();
+            }
 	}
 }//End of class StoreController

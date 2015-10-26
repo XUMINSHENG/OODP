@@ -47,6 +47,13 @@ public class CashStoreItem extends StoreItem {
         public CashStoreItem getNextCashStoreItem(){
             return nextCashStoreItem;
         }
+        
+        /**
+         * 
+         * @param changeBal
+         * @param itemQuantityRequired
+         * @return 
+         */
         public int handleChange(int changeBal, HashMap<CashStoreItem, Integer> itemQuantityRequired){
             int quantity = this.getQuantity();
             Coin coin = (Coin)this.getContent();
@@ -57,7 +64,12 @@ public class CashStoreItem extends StoreItem {
                 quantityRequired++;
                 quantity--;
             }
-            itemQuantityRequired.put(this, quantityRequired);
+            // if this Coin needs to deduct, 
+            // it and its number to deduct will be put into map
+            // afterward it will be decrement by Machinery Controller
+            if(quantityRequired>0){
+                itemQuantityRequired.put(this, quantityRequired);
+            }
             if(changeBal==0){
                 return changeBal;
             }else{

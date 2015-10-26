@@ -67,6 +67,11 @@ public class ChangeGiverColleague extends PaymentColleague{
 	custPanel.displayChangeStatus(isAnyDenoEmpty);
     }
     
+    /**
+     * 
+     * @param changeRequired
+     * @return 
+     */
     public boolean giveChange(int changeRequired){
         if(changeRequired==0)
             return true;
@@ -80,15 +85,12 @@ public class ChangeGiverColleague extends PaymentColleague{
             //get the head of the chain
             CashStoreItem cashStoreItem = ((CashStore)storeCtrl.getStore(Store.CASH)).getHighestValueCashStoreItem();
             //Create a hashMap for collecting the required quantity for each CashStoreItem
-            HashMap<CashStoreItem,Integer> itemQuantityRequired = new HashMap<CashStoreItem, Integer>();
+            HashMap<CashStoreItem,Integer> cashStoreItemMap = new HashMap<CashStoreItem, Integer>();
             //chain gets started
-            changeBal = cashStoreItem.handleChange(changeBal,itemQuantityRequired);
+            changeBal = cashStoreItem.handleChange(changeBal,cashStoreItemMap);
             //give change
-            Iterator<Entry<CashStoreItem,Integer>> iterator = itemQuantityRequired.entrySet().iterator();
-            while(iterator.hasNext()){
-                HashMap.Entry<CashStoreItem,Integer> item = (HashMap.Entry<CashStoreItem,Integer>)iterator.next();
-                getMediator().getTxCtrl().getMainController().getMachineryController().giveChange(item.getKey(), item.getValue());
-            }
+            getMediator().getTxCtrl().getMainController().getMachineryController().giveChange(cashStoreItemMap);
+            
             getMediator().getTxCtrl().getCustomerPanel().setChange(changeRequired-changeBal);
             if(changeBal>0)
                 getMediator().getTxCtrl().getCustomerPanel().displayChangeStatus(true);
