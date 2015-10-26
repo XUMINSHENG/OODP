@@ -63,4 +63,9 @@ public class IdleState extends TransactionControllerState{
         txCtrl.refreshMachineryDisplay();
         txCtrl.setState(new MaintenanceState(txCtrl));
     }
+    
+    @Override
+    public void cancelTransaction() {
+        System.out.println("transactionstate cancel");
+    }
 }
