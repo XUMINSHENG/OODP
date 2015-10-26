@@ -26,21 +26,6 @@ public class FaultState extends TransactionControllerState{
         this.mediator = txCtrl.getMediator();
         this.dispenseCtrl = txCtrl.getDispenseController();
     }
-
-    @Override
-    public void terminateFault() {
-        System.out.println("TerminateTransaction: Begin");
-        dispenseCtrl.allowSelection(false);
-        if(mediator!=null){
-            mediator.cancelPayment();
-        }
-	if(custPanel!=null)
-        {
-            custPanel.setTerminateButtonActive(false);
-	}
-        txCtrl.refreshMachineryDisplay();
-        System.out.println("TerminateTransaction: End");
-    }
     
     @Override
     public void startMaintenance() {

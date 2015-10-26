@@ -43,21 +43,10 @@ public class IdleState extends TransactionControllerState{
         }
         mediator = null;
         txCtrl.getCustomerPanel().setPaymentOptionBoxActive(true);
+//            this.changeGiver.resetChange();
+//            changeGiver.displayChangeStatus();
+//            coinReceiver.startReceiver();
         txCtrl.setState(new TransactionState(txCtrl));
-    }
-
-    @Override
-    public void cancelTransaction() {
-        System.out.println("idlestate cancel");
-        this.mediator = txCtrl.getMediator();
-        if(mediator!=null){
-            System.out.println("mediator cancel");
-            mediator.cancelPayment();
-        }
-	dispenseCtrl.allowSelection(true);
-        txCtrl.getCustomerPanel().setPaymentOptionBoxActive(false);
-	txCtrl.refreshMachineryDisplay();
-        txCtrl.setState(new IdleState(txCtrl));
     }
 
     @Override
@@ -73,11 +62,5 @@ public class IdleState extends TransactionControllerState{
 	}
         txCtrl.refreshMachineryDisplay();
         txCtrl.setState(new MaintenanceState(txCtrl));
-    }
-    
-    @Override
-    public void endMaintenance(){
-        txCtrl.setState(new FaultState(txCtrl));
-        txCtrl.terminateFault();
     }
 }

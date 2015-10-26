@@ -48,7 +48,6 @@ public class TransactionState extends TransactionControllerState{
     public void completeTransaction(int change) {
 	if (dispenseCtrl.dispenseDrink(selection)==false)
         {
-            txCtrl.setState(new FaultState(txCtrl));
             txCtrl.terminateFault();
             return;
         }
@@ -56,6 +55,26 @@ public class TransactionState extends TransactionControllerState{
         dispenseCtrl.allowSelection(true);
 	txCtrl.refreshMachineryDisplay();
         txCtrl.setState(new IdleState(txCtrl));
+    }
+    
+        @Override
+    public void terminateFault() {
+        System.out.println("TerminateTransaction: Begin");
+        dispenseCtrl.allowSelection(false);
+        if(mediator!=null){
+            mediator.cancelPayment();
+        }
+        
+//      coinReceiver.stopReceive();
+//	coinReceiver.refundCash();
+        
+	if(custPanel!=null)
+        {
+            custPanel.setTerminateButtonActive(false);
+	}
+        txCtrl.refreshMachineryDisplay();
+        txCtrl.setState(new FaultState(txCtrl));
+        System.out.println("TerminateTransaction: End");
     }
 
     @Override
@@ -77,10 +96,11 @@ public class TransactionState extends TransactionControllerState{
 	if(custPanel!=null){
 		custPanel.setTerminateButtonActive(false);
 	}
+//      coinReceiver.stopReceive();
+//	coinReceiver.refundCash();
         txCtrl.refreshMachineryDisplay();
         txCtrl.setState(new MaintenanceState(txCtrl));
     }
-
 
     @Override
     public void startPayment() {
@@ -88,6 +108,4 @@ public class TransactionState extends TransactionControllerState{
         this.mediator = txCtrl.getMediator();
         this.mediator.startPayment();
     }
-
-    
 }
